@@ -1,0 +1,5 @@
+D:\..\Intro-Java-Homework\src>javac SumTwoNumbers.java
+
+D:\..\Intro-Java-Homework\src>java SumTwoNumbers
+1  4
+5

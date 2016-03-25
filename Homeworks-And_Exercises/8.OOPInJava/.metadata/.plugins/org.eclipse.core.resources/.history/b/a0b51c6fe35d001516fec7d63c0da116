@@ -1,0 +1,37 @@
+package Shapes.SpaceShapes;
+
+public class Sphere extends SpaceShape {
+	private double radius;
+	
+	public Sphere(double radius) {
+		super();
+		this.setRadius(radius);
+	}
+
+	public double getRadius() {
+		return radius;
+	}
+
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+	@Override
+	public double getVolume() {
+		double volume = (4 / 3) * Math.PI * (this.radius * this.radius * this.radius);
+		return volume;
+	}
+
+	@Override
+	public double getArea() {
+		double area = 4 * Math.PI * (this.radius * this.radius);
+		return area;
+	}
+
+}

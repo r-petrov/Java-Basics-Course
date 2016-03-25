@@ -1,0 +1,13 @@
+1442651990451	Copy compilation unit
+1442652002650	Delete element
+1442653063142	Rename local variable 'date'
+1442653076818	Rename local variable 'expirationDate'
+1442653427143	Rename field 'PRICE_RATIO'
+1442653461961	Rename field 'EXPIRATION_PRICE_RATIO'
+1442654194988	Rename local variable 'expiredProductPrice'
+1442675781771	Move compilation units
+1442676008306	Move compilation units
+1442676032087	Move compilation units
+1442676047620	Move compilation unit
+1442676227751	Move compilation unit
+1442676821368	Rename field 'noProductQuantityString'

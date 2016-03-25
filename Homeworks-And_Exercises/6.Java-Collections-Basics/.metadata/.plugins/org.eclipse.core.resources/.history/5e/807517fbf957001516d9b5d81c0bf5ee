@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class LargestSequenceOfEqualStrings {
+
+	public static void main(String[] args) {
+		System.out.println("Please enter a sequence of strings separated by spaces:");
+		
+		Scanner inputStringScanner = new Scanner(System.in);
+		
+		String[] strings = inputStringScanner.nextLine().split(" ");
+		
+		System.out.println(String.join(" ", strings));
+//		int counterOfEqualStrings = 1;
+//		int maximalCountOfEqualStrings = Integer.MIN_VALUE;
+//		int[] countersOfEqualStrings = null;
+//		
+//		
+//		for (int i = 1; i < strings.length; i++) {
+//			
+//		}
+		
+		ArrayList<ArrayList<String>> stringsSequencesCollection = new ArrayList<ArrayList<String>>();
+		ArrayList<String> stringsSequences = new ArrayList<String>();
+		stringsSequences.add(strings[0]);
+		for (int i = 1; i < strings.length; i++) {
+			if(strings[i].equals(strings[i - 1])) {
+				stringsSequences.add(strings[i]);
+			} else {
+				
+				System.out.println(stringsSequences + " " + stringsSequences.size());
+				
+				stringsSequencesCollection.add(stringsSequences);
+				stringsSequences.clear();
+				stringsSequences.add(strings[i]);
+				
+				//ystem.out.println("\n" + stringsSequences);
+			}
+			
+			if(i == strings.length - 1) {
+				stringsSequencesCollection.add(stringsSequences);
+				
+				System.out.println(stringsSequences + " " + stringsSequences.size());
+			}
+		}
+		
+		System.out.println(stringsSequencesCollection.size());
+		//System.out.println(stringsSequencesCollection.get(2).size());
+		System.out.println();
+		
+		int maximalStringSequence = Integer.MIN_VALUE;
+		int index = 0;
+		ArrayList<String> currentStringSequence = new ArrayList<String>();
+		for (int i = 0; i < stringsSequencesCollection.size(); i++) {
+			currentStringSequence = stringsSequencesCollection.get(i);
+			
+			System.out.println(stringsSequencesCollection.get(i).size());
+			
+			if (stringsSequencesCollection.get(i).size() > maximalStringSequence) {
+				maximalStringSequence = stringsSequencesCollection.get(i).size();
+				index = i;
+				System.out.println("\n" + index);
+			}
+		}
+		
+		System.out.println(String.join(" ", stringsSequencesCollection.get(index)));
+	}
+
+}

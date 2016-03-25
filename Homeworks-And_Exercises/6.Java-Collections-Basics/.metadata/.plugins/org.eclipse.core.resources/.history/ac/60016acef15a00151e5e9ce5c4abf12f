@@ -1,0 +1,16 @@
+public class Counts {
+	public static void main(String[] args) {
+		int monthBillVivacom = 20;
+		int monthBillBob = 15;
+		int months = 12;
+		double compensationVivacom = (3 * 20) + (12 * 10) + 20;
+		
+		double oneYearBillsBob = monthBillBob * months;
+		double oneYearBillsVivacom = monthBillVivacom * months;
+		double marginBobVivacom = oneYearBillsBob + compensationVivacom - oneYearBillsVivacom;
+		double margin = 15.75 + 26.31 + 14.31 + 31.36 + 5.4 + 19 + 4.8 + 21.67;
+		
+		System.out.printf("Bob: %d\nVivacom: %s\nMargin Bob - Vivacom: %s\nMargin: %s\n", 
+				oneYearBillsBob, oneYearBillsVivacom, marginBobVivacom, margin);
+	}
+}

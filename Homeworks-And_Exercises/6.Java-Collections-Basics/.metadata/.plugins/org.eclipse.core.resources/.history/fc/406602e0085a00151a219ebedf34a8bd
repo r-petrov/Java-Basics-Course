@@ -1,0 +1,29 @@
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+
+public class MostFrequentWord {
+
+	public static void main(String[] args) {
+		Scanner inputText = new Scanner(System.in);
+		String[] textWords = inputText.nextLine().split("\\W+");
+		
+		Map<String, Integer> words = createWordsCounts(textWords);
+	}
+
+	private static Map<String, Integer> createWordsCounts(String[] textWords) {
+		Map<String, Integer> words = new TreeMap<String, Integer>();
+		for (String word : textWords) {
+			word = word.toLowerCase();
+			Integer count = words.get(word.toLowerCase());
+			if (count == null) {
+				count = 0;
+			}
+			
+			words.put(word, count + 1);
+		}
+		return words;
+	}
+
+}

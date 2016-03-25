@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class CombineListsOfLetters {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Character> l1 = new ArrayList<Character>();
+        String[] input =  scanner.nextLine().split(" ");
+        for (String s : input) {
+            l1.add(s.charAt(0));
+        }
+        input = scanner.nextLine().split(" ");
+        ArrayList<Character> l2 = new ArrayList<Character>();
+        for (String s : input) {
+            l2.add(s.charAt(0));
+        }
+        l2.removeAll(l1);
+        l1.addAll(l2);
+
+        System.out.println(l1);
+    }
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class ArrayOfStringsSorter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hi");
+		Scanner scanner = new Scanner(System.in);
+		int numberOfStrings = scanner.nextInt();
+		scanner.useDelimiter("\n");
+		java.lang.String[] strings = new java.lang.String[numberOfStrings];
+		java.lang.String currentString = "";
+		
+		for (int i = 0; i < numberOfStrings; i++) {
+			currentString = scanner.nextLine();
+			strings[i] = currentString.toString();
+		}
+		
+		for (java.lang.String string : strings) {
+			System.out.println(string);
+		}
+	}
+
+}

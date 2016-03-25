@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		Point[] points = new Point[3];
+		for (int i = 0; i < 3; ++i) {
+			System.out.println("Enter point coordinates: ");
+			int x = scanner.nextInt();
+			int y = scanner.nextInt();
+			points[i] = new Point(x, y);
+		}
+
+		int area = Math.abs(
+				(points[0].x*(points[1].y-points[2].y)+
+				points[1].x*(points[2].y-points[0].y)+
+				points[2].x*(points[0].y-points[1].y)) / 2);
+		System.out.println("The area is");
+		System.out.println(area);
+
+		scanner.close();
+	}
+}

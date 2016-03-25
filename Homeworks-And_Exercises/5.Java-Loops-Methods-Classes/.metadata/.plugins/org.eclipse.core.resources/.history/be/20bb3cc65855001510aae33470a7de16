@@ -1,0 +1,12 @@
+import java.nio.channels.Pipe;
+
+
+public class AngleUnitConverter {
+	static final double DEGREES_180 = 180;
+	static final double PI = Math.PI;
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

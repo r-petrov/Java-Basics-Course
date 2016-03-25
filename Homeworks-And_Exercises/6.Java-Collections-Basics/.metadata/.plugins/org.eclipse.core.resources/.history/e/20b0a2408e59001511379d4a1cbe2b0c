@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class CombineListsOfLetters {
+
+	public static void main(String[] args) {
+		Scanner inputLetters = new Scanner(System.in);
+		
+		String firstLine = inputLetters.nextLine();
+		String firstSequenceOfLetters = extractLetters(firstLine);
+		ArrayList<Character> l1 = createListOfLetters(firstSequenceOfLetters);
+		
+		String secondLine = inputLetters.nextLine();
+		String secondSequenceOfLetters = extractLetters(secondLine);
+		ArrayList<Character> l2 = createListOfLetters(secondSequenceOfLetters);
+		
+		ArrayList<Character> combinedSequenceOfLetters = (ArrayList<Character>) l1.clone();
+		for (Character character : l2) {
+			if (!l1.contains(character)) {
+				combinedSequenceOfLetters.add(character);
+			}
+		}
+		
+		combinedSequenceOfLetters.forEach(l -> System.out.print(l));
+		
+	}
+
+	private static ArrayList<Character> createListOfLetters(String sequenceOfLetters) {
+		ArrayList<Character> lettersCollection = new ArrayList<Character>();
+		for (Character character : sequenceOfLetters.toCharArray()) {
+			lettersCollection.add(character);
+		}
+		
+		return lettersCollection;
+	}
+
+	private static String extractLetters(String text) {
+		Pattern lettersInputPattern = Pattern.compile("\\S+");
+		Matcher lettersMatcher = lettersInputPattern.matcher(text);
+		
+		StringBuilder sb = new StringBuilder();
+		while (lettersMatcher.find()) {
+			sb.append(lettersMatcher.group(0));
+			
+		}
+		
+		String sequenceOfLetters = sb.toString();
+		System.out.println(sequenceOfLetters);
+		return sequenceOfLetters;
+	}
+
+}

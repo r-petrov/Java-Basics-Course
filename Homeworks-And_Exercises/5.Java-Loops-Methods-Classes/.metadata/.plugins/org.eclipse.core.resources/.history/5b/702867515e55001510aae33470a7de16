@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+
+public class RandomHandsOf5Cards {
+
+	public static void main(String[] args) {
+		Scanner inputScanner = new Scanner(System.in);
+		int numberOfHands = Integer.parseInt(inputScanner.nextLine());
+	}
+
+}

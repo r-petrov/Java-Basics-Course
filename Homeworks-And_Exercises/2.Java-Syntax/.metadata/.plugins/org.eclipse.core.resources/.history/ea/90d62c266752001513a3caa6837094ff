@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		int number = scanner.nextInt();
+		if (number > 0) {
+			System.out.printf("%d in hex is %1$X", number);
+		}
+
+		scanner.close();
+	}
+}

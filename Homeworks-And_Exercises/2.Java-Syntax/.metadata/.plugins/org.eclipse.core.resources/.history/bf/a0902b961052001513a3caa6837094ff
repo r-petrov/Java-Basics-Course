@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String pointsString = input.nextLine();
+		String[] points = pointsString.split(" ");
+		double x = Double.parseDouble(points[0]);
+		double y = Double.parseDouble(points[1]);
+		
+		if (y<6 || y > 13.5) {
+			System.out.println("Outside");
+		} else {
+			if (x<12.5 || x > 22.5) {
+				System.out.println("Outside");
+			} else {
+				if ((x<20 && x>17.5) && y > 8.5) {
+					System.out.println("Outside");
+				} else {
+					System.out.println("Inside");
+				}
+			}
+		}
+		
+	}
+}

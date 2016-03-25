@@ -1,0 +1,14 @@
+package Messages;
+
+public final class Messages {
+	private Messages(){}
+	
+	public static String invalidProductName = "Product name cannot be empty.";
+	public static String invalidProductPrice = "The price of product cannot be a negative number.";
+	public static String invalidProductQuantity = "The quantity of product cannot be a negative number.";
+	public static String noProductQuantity = "Tho product is put of stock";
+	public static String invalidProductDateOfExpiration = "The date of expiration cannot be earlier than date of product creation.";
+	public static String invalidCustomerName = "Customer name cannot be empty.";
+	public static String invalidCustomerAge = "Customer age cannot be a negative number.";
+	public static String invalidCustomerBalance = "Customer balance cannot be a negative number.";
+}

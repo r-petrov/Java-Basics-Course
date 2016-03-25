@@ -1,0 +1,36 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class MostFrequentWord {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] words = scanner.nextLine().split("[\\W]");
+
+
+        Map<String, Integer> wordsCount = new TreeMap<String, Integer>();
+        for (String word : words) {
+            Integer count = wordsCount.get(word);
+            if (count == null) {
+                count = 0;
+            }
+            if(!word.equals("")) {
+                wordsCount.put(word.toLowerCase(), count + 1);
+            }
+        }
+        int maxCount = 0;
+        for (Integer integer : wordsCount.values()) {
+            if(maxCount<integer){
+                maxCount = integer;
+            }
+        }
+        for (String key : wordsCount.keySet()) {
+            if(wordsCount.get(key).equals(maxCount)){
+                System.out.println(key+" -> "+ maxCount);
+            }
+        }
+
+
+    }
+}

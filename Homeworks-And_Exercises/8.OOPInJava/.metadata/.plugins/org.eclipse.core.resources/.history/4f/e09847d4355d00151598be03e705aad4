@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Triangle extends PlaneShape {
+	private final int NUMBER_OF_VERTICES = 3;
+
+	@Override
+	public void addVertices(ArrayList<Vertex> vertices) {
+		List<Vertex> verticesList = super.getVertices();
+		for (Vertex vertex : vertices) {
+			if (vertex.getzCoordinate() == null && vertices.size() == NUMBER_OF_VERTICES) {
+				verticesList.add(vertex);
+			} else {
+				throw new IllegalArgumentException("Triangle should hold 3 2D vertices.");
+			}
+		}
+	}
+
+	@Override
+	public double getArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getPerimeter() {
+		List<Vertex> verticesList = super.getVertices();
+		Vertex a = verticesList.get(0);
+		Vertex b = verticesList.get(1);
+		Vertex c = verticesList.get(2);
+		double sideOne = a.calculateDistanceBetweenTwo2DVertices(b);
+		double sideTwo = b.calculateDistanceBetweenTwo2DVertices(c);
+		double sideThree = c.calculateDistanceBetweenTwo2DVertices(a);
+		double perimeter = sideOne + sideTwo + sideThree;
+		return perimeter;
+	}
+
+}

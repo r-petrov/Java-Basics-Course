@@ -1,0 +1,44 @@
+package Shapes;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import Shapes.PlaneShapes.Circle;
+import Shapes.PlaneShapes.Rectangle;
+import Shapes.PlaneShapes.Triangle;
+
+
+public class ShapesInformation {
+
+	public static void main(String[] args) {
+		ArrayList<Vertex> triangleVertices = new ArrayList<Vertex>();
+		triangleVertices.add(new Vertex("Ä", 0.0, 5));
+		triangleVertices.add(new Vertex("B", 1, 5.5));
+		triangleVertices.add(new Vertex("C", 2, 7));
+		Shape triangle = new Triangle();
+		triangle.addVertices(triangleVertices);
+		
+		ArrayList<Vertex> rectangleVertices = new ArrayList<Vertex>();
+		rectangleVertices.add(new Vertex("O", 9, 2));
+		Shape rectangle = new Rectangle(6, 4);
+		rectangle.addVertices(rectangleVertices);
+		
+		ArrayList<Vertex> circleVertices = new ArrayList<Vertex>();
+		circleVertices.add(new Vertex("O", 0, 7));
+		Shape circle = new Circle(0.5);
+		circle.addVertices(circleVertices);
+		
+		List<Shape> planeShapes = Arrays.asList(triangle, rectangle, circle);
+		
+		planeShapes.forEach(s -> System.out.println(s.toString()));
+	}
+
+//	private static ArrayList<Vertex> vertices createVerticesCollection (String name, double xCoordinate, double yCoordinate) {
+//		ArrayList<Vertex> vertices = new ArrayList<Vertex>();
+//	}
+//	
+//private static void createVerticesCollection (String name, double xCoordinate, double yCoordinate, Double zCoordinate) {
+//		
+//	}
+}

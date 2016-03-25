@@ -1,0 +1,38 @@
+package Display;
+
+import java.awt.Canvas;
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+public class Display {
+	private String title;
+	private int width;
+	private int height;
+	
+	private JFrame frame;
+	private Canvas canvas;
+	
+	public Display(String title, int width, int height) {
+		super();
+		this.title = title;
+		this.width = width;
+		this.height = height;
+		
+		this.createFrame();
+	}
+	
+	private void createFrame() {
+		Dimension dimensions = new Dimension(this.width, this.height);
+		
+		this.frame = new JFrame(this.title);
+		this.frame.setSize(this.width, this.height);
+		this.frame.setVisible(true);
+		this.frame.setFocusable(true);
+		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.frame.setLocationRelativeTo(null);
+		
+		this.canvas = new Canvas();
+		this.canvas.setMaximumSize(dimensions);
+	}
+}

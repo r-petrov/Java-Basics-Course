@@ -1,0 +1,74 @@
+public class Vertex {
+	private String name;
+	private double xCoordinate;
+	private double yCoordinate;
+	private Double zCoordinate;
+
+	public Vertex(String name, double xCoordinate, double yCoordinate) {
+		this.setName(name);
+		this.setxCoordinate(xCoordinate);
+		this.setyCoordinate(yCoordinate);
+	}
+
+	public Vertex(String name, double xCoordinate, double yCoordinate,
+			Double zCoordinate) {
+		this(name, xCoordinate, yCoordinate);
+		this.setzCoordinate(zCoordinate);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		if (name == null || name.length() == 0) {
+			throw new IllegalArgumentException("Vertex name cannot be empty.");
+		}
+		this.name = name;
+	}
+
+	public double getxCoordinate() {
+		return xCoordinate;
+	}
+
+	public void setxCoordinate(double xCoordinate) {
+		this.xCoordinate = xCoordinate;
+	}
+
+	public double getyCoordinate() {
+		return yCoordinate;
+	}
+
+	public void setyCoordinate(double yCoordinate) {
+		this.yCoordinate = yCoordinate;
+	}
+
+	public Double getzCoordinate() {
+		return zCoordinate;
+	}
+
+	public void setzCoordinate(Double zCoordinate) {
+		this.zCoordinate = zCoordinate;
+	}
+
+	public double calculateDistanceBetweenTwo2DVertices(Vertex vertex) {
+		double distance = Math.sqrt((Math.pow(this.getxCoordinate()
+				- vertex.getxCoordinate(), 2) + (Math.pow(this.getyCoordinate()
+				- vertex.getyCoordinate(), 2))));
+		return distance;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append(String.format("Vertix %s: X = %.2f, Y = %.2f", this.name,
+				this.xCoordinate, this.yCoordinate));
+		if (this.zCoordinate != null) {
+			result.append(String.format("Z: %.2f\n", this.zCoordinate));
+		} else {
+			result.append("\n");
+		}
+		return result.toString();
+	}
+
+}

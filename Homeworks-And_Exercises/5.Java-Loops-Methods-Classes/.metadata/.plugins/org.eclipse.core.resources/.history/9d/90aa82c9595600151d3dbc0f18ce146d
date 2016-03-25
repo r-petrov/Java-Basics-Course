@@ -1,0 +1,39 @@
+
+public class FullHouse {
+
+	public static void main(String[] args) {
+		
+		String[] cardFaces = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+		char[] suits = {'\u2660', '\u2665', '\u2666', '\u2663'};
+		int countOfFullHouses = 0;
+		
+		for (int threeEqualCards = 0; threeEqualCards < cardFaces.length; threeEqualCards++) {
+			for (int twoEqualCards = 0; twoEqualCards < cardFaces.length; twoEqualCards++) {
+				for (int threeEqualCardsSuit1 = 0; threeEqualCardsSuit1 < suits.length; threeEqualCardsSuit1++) {
+					for (int threeEqualCardsSuit2 = threeEqualCardsSuit1 + 1; threeEqualCardsSuit2 < suits.length; threeEqualCardsSuit2++) {
+						for (int threeEqualCardsSuit3 = threeEqualCardsSuit2 + 1; threeEqualCardsSuit3 < suits.length; threeEqualCardsSuit3++) {
+							for (int twoEqualCardsSuit1 = 0; twoEqualCardsSuit1 < suits.length; twoEqualCardsSuit1++) {
+								for (int twoEqualCardsSuit2 = twoEqualCardsSuit1 + 1; twoEqualCardsSuit2 < suits.length; twoEqualCardsSuit2++) {
+									if(threeEqualCards != twoEqualCards) {
+										System.out.printf("%s%c %s%c %s%c %s%c %s%c\n", 
+												cardFaces[threeEqualCards], suits[threeEqualCardsSuit1],
+												cardFaces[threeEqualCards], suits[threeEqualCardsSuit2],
+												cardFaces[threeEqualCards], suits[threeEqualCardsSuit3],
+												cardFaces[twoEqualCards], suits[twoEqualCardsSuit1],
+												cardFaces[twoEqualCards], suits[twoEqualCardsSuit2]);
+										
+										countOfFullHouses++;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		System.out.println(countOfFullHouses);
+
+	}
+
+}

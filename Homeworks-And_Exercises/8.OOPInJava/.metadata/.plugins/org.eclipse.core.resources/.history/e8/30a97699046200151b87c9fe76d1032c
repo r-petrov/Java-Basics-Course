@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class LegoBlocks {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int numberOfRows = Integer.parseInt(input.nextLine());
+		
+		List<List<String>> firstJaggedArray = new ArrayList<List<String>>(numberOfRows);
+	}
+
+}

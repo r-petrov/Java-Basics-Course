@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Shape {
+	private List<Vertex> vertices;
+
+	public Shape() {
+		this.vertices = new ArrayList<Vertex>();
+	}
+
+	public List<Vertex> getVertices() {
+		return vertices;
+	}
+
+	public void addVertices(ArrayList<Vertex> vertices) {
+		if (vertices.size() != 1) {
+			throw new IllegalArgumentException("Current shape should hold only one 2D vertix.");
+		}
+		
+		List<Vertex> verticesList = this.getVertices();
+		for (Vertex vertex : vertices) {
+			if (vertex.getzCoordinate() == null) {
+				verticesList.add(vertex);
+			} else {
+				throw new IllegalArgumentException("Current shape should hold a 2D vertix.");
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append("Vertex's coordinates:\n");
+		for (Vertex vertex : vertices) {
+			result.append(vertex.toString());
+		}
+		return result.toString();
+	}
+
+}

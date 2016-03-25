@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+
+public class DaysBetweenTwoDates {
+
+	public static void main(String[] args) {
+		Scanner inputDate = new Scanner(System.in);
+		String[] firstDate = inputDate.nextLine().split("-");
+		String[] secondDate = inputDate.nextLine().split("-");
+	}
+
+}

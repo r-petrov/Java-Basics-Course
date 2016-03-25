@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+
+public class Generate3LetterWords {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String inputString = input.nextLine().trim().toLowerCase();
+		char[] characters = inputString.split(' ').toCharArray();
+		
+		for (int ch1 = 0; ch1 < characters.length; ch1++) {
+			for (int ch2 = 0; ch2 < characters.length; ch2++) {
+				for (int ch3 = 0; ch3 < characters.length; ch3++) {
+					System.out.print("" + characters[ch1] + characters[ch2] + characters[ch3] + " ");
+				}
+			}
+		}
+	}
+
+}

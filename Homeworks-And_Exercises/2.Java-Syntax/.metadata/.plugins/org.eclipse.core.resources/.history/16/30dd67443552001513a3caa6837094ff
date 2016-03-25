@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		int[] numbers = {0,1,2};
+		for (int i : numbers) {
+			System.out.print(i);
+		}
+		System.out.println();
+		changeArray(numbers);
+		
+		for (int i : numbers) {
+			System.out.print(i);
+		}
+		
+		ArrayList<Integer> numsArrayList = new ArrayList<>();
+		numsArrayList.add(0);
+		numsArrayList.add(1);
+		numsArrayList.add(2);
+		numsArrayList.add(3);
+		numsArrayList.add(4);
+	}
+	
+	static void changeList (ArrayList<Integer> nums) {
+		for (int i = 0; i < nums.size(); i++) {
+			nums.set(i, nums.get(i) + 1);
+		}
+	}
+	
+	static void changeArray (int[] numbers){
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] += 1; 
+		}
+	}
+}

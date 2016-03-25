@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class CountSubstringOccurrences {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String inputString = scanner.nextLine();
+        String searchWord = scanner.next();
+        int count = 0;
+
+        for (int i = 0; i < inputString.length()-searchWord.length()+1; i++) {
+            String check = inputString.substring(i,i+searchWord.length());
+            if(searchWord.toUpperCase().equals(check.toUpperCase())){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}

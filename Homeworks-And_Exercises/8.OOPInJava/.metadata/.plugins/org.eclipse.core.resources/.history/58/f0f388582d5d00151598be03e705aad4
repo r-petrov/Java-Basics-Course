@@ -1,0 +1,41 @@
+import java.util.List;
+
+import Interfaces.AreaMeasurable;
+import Interfaces.PerimeterMeasurable;
+
+
+public abstract class PlaneShape extends Shape implements PerimeterMeasurable, AreaMeasurable {
+
+	@Override
+	public double getArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getPerimeter() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void addVertices(List<Vertex> vertices) {
+		if(vertices.size() != 1) {
+			throw new IllegalArgumentException("The number of current shape's vertices should be 1.");
+		}
+		
+		for (Vertex vertex : vertices) {
+			this.getVertices().add(vertex);
+		}
+		
+	}
+
+	
+//	public void addVertices(List<Vertex> vertices) {
+//		if(vertices.size() != 1) {
+//			throw new IllegalArgumentException("The number of current shape's vertices should be 1.");
+//		}
+//		
+//		this.vertices = vertices;
+//	}
+}

@@ -1,0 +1,13 @@
+package Products;
+
+import Products.Customer;
+import Products.Product;
+
+
+public final class PurchaseManager {
+	private PurchaseManager(){}
+	
+	public static void processPurchase(Product product, Customer customer) {
+		
+	}
+}

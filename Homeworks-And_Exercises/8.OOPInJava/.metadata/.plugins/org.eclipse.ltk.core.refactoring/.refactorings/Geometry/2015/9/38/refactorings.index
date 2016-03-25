@@ -1,0 +1,39 @@
+1442395421983	Rename method 'getxCoordinate'
+1442415141651	Delete element
+1442415423134	Move compilation unit
+1442415515752	Move compilation unit
+1442415567334	Move compilation unit
+1442416020702	Move compilation unit
+1442488504836	Delete elements
+1442490031385	Rename field 'verticesList'
+1442490509022	Rename method 'getVerticesList'
+1442491810419	Rename local variable 'verticesList'
+1442491817249	Rename local variable 'verticesList'
+1442492440639	Rename local variable 'triangleSidesDoubles'
+1442492449520	Rename local variable 'triangleSidesDoubles'
+1442516637830	Rename local variable 'verticesList'
+1442518249354	Delete element
+1442518420437	Rename local variable 'vertices'
+1442562724546	Move compilation units
+1442563036961	Move compilation units
+1442563047087	Delete element
+1442563071491	Delete element
+1442563145650	Move compilation units
+1442563229703	Delete element
+1442563287705	Delete element
+1442563312197	Move compilation units
+1442563341463	Move compilation unit
+1442565416312	Rename method 'calculateBaseArea'
+1442565423230	Rename method 'calculateSlantArea'
+1442566094923	Rename field 'NUMBER_OF_PARALEL_CUBOID_SIDES'
+1442566767065	Rename method 'getxCoordinate'
+1442566773833	Rename method 'setxCoordinate'
+1442566780478	Rename method 'getyCoordinate'
+1442566785984	Rename method 'setyCoordinate'
+1442566798452	Rename method 'getzCoordinate'
+1442566806350	Rename method 'setzCoordinate'
+1442567468580	Rename local variable 'pyramidVertices'
+1442567477596	Rename local variable 'pyramid'
+1442567783082	Rename local variable 'e'
+1442567792693	Rename local variable 'illegalArgEx'
+1442567976034	Rename local variable 'planeShapes'

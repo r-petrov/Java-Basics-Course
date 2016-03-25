@@ -1,0 +1,13 @@
+import Enumerations.AgeRestriction;
+
+
+public abstract class ElectonicsProduct extends Product {
+	protected int guaranteePeriod;
+
+	public ElectonicsProduct(String name, double price, double quantity,
+			AgeRestriction ageRestriction) {
+		super(name, price, quantity, ageRestriction);
+		// TODO Auto-generated constructor stub
+	}
+
+}

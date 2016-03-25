@@ -1,0 +1,91 @@
+
+public class FullHouse {
+
+	public static void main(String[] args) {
+		
+		String[] cardFaces = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+		char[] suits = {'\u2660', '\u2665', '\u2666', '\u2663'};
+		int countOfFullHouses = 0;
+		
+		for (int threeEqualCards = 0; threeEqualCards < cardFaces.length; threeEqualCards++) {
+			for (int twoEqualCards = 0; twoEqualCards < cardFaces.length; twoEqualCards++) {
+				for (int threeEqualCardsSuit1 = 0; threeEqualCardsSuit1 < suits.length; threeEqualCardsSuit1++) {
+					for (int threeEqualCardsSuit2 = 0; threeEqualCardsSuit2 < suits.length; threeEqualCardsSuit2++) {
+						for (int threeEqualCardsSuit3 = 0; threeEqualCardsSuit3 < suits.length; threeEqualCardsSuit3++) {
+							for (int twoEqualCardsSuit1 = 0; twoEqualCardsSuit1 < suits.length; twoEqualCardsSuit1++) {
+								for (int twoEqualCardsSuit2 = 0; twoEqualCardsSuit2 < suits.length; twoEqualCardsSuit2++) {
+									if(threeEqualCards != twoEqualCards) {
+										System.out.printf("%s%s %s%s %s%s %s%s %s%s\n", 
+												threeEqualCards, threeEqualCardsSuit1,
+												threeEqualCards, threeEqualCardsSuit2,
+												threeEqualCards, threeEqualCardsSuit3,
+												twoEqualCards, twoEqualCardsSuit1,
+												twoEqualCards, twoEqualCardsSuit2);
+										
+										countOfFullHouses++;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		System.out.println(countOfFullHouses);
+//		String spade = "\u2660";
+//		String heart = "\u2665";
+//		String diamond = "\u2666"; 
+//		String club = "\u2663"; 
+//		String[] suits = {club, diamond, heart, spade}; 
+//		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+//		String[] playngCards = new String[52];
+//		
+//		for (int i = 0; i < playngCards.length; i++) {
+//			if(i < ranks.length) {
+//				playngCards[i] = ranks[i % ranks.length] + club;
+//			} else if (i >= ranks.length && i < ranks.length * 2) {
+//				playngCards[i] = ranks[i % ranks.length] + diamond;
+//			} else if (i >= ranks.length * 2 && i < ranks.length * 3) {
+//				playngCards[i] = ranks[i % ranks.length] + heart;
+//			} else {
+//				playngCards[i] = ranks[i % ranks.length] + spade;
+//			}
+//		}
+//		
+//		//System.out.print(String.join(" ", playngCards));
+//		
+//		int counter = 0;
+//		for (int c1 = 0; c1 < playngCards.length; c1++) {
+//			String card1 = playngCards[c1];
+//			for (int c2 = 0; c2 < playngCards.length; c2++) {
+//				String card2 = playngCards[c2];
+//				for (int c3 = 0; c3 < playngCards.length; c3++) {
+//					String card3 = playngCards[c3];
+//					for (int c4 = 0; c4 < playngCards.length; c4++) {
+//						String card4 = playngCards[c4];
+//						for (int c5 = 0; c5 < playngCards.length; c5++) {
+//							String card5 = playngCards[c5];
+//							
+//							if (card1.substring(0, 1).equals(card2.substring(0, 1)) 
+//									&& !card1.equals(card2)
+//									&& card2.substring(0, 1).equals(card3.substring(0, 1))
+//									&& !card2.equals(card3)
+//									&& !card1.equals(card3)
+//									&& !card3.substring(0, 1).equals(card4.substring(0, 1)) 
+//									&& card4.substring(0, 1).equals(card5.substring(0, 1))
+//									&& !card4.equals(card5)) {
+//								
+//								counter++;
+//								//System.out.println(card1 + " " + card2 + " " + card3 + " " + card4 + " " + card5);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//		
+//		System.out.println(counter);
+	}
+
+}

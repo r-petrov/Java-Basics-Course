@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+public class Triangle extends PlaneShape {
+	private final int NUMBER_OF_VERTICES = 3;
+
+	@Override
+	public void addVertices(ArrayList<Vertex> vertices) {
+		List<Vertex> verticesList = super.getVertices();
+		for (Vertex vertex : vertices) {
+			if (vertex.getzCoordinate() == null && vertices.size() == NUMBER_OF_VERTICES) {
+				verticesList.add(vertex);
+			} else {
+				throw new IllegalArgumentException("Triangle should hold 3 2D vertices.");
+			}
+		}
+	}
+
+	@Override
+	public double getArea() {
+		List<Vertex> vertices = super.getVertices();
+		Vertex a = vertices.get(0);
+		Vertex b = vertices.get(1);
+		Vertex c = vertices.get(2);
+		double p = this.getPerimeter() / 2;
+		double area = Math.sqrt(p * )
+		return 0;
+	}
+
+	@Override
+	public double getPerimeter() {
+		List<Vertex> vertices = super.getVertices();
+		Vertex a = vertices.get(0);
+		Vertex b = vertices.get(1);
+		Vertex c = vertices.get(2);
+		double sideOne = a.calculateDistanceBetweenTwo2DVertices(b);
+		double sideTwo = b.calculateDistanceBetweenTwo2DVertices(c);
+		double sideThree = c.calculateDistanceBetweenTwo2DVertices(a);
+		double perimeter = sideOne + sideTwo + sideThree;
+		return perimeter;
+	}
+	
+	private List<Double> getTriangleSides() {
+		List<Vertex> vertices = super.getVertices();
+		Vertex a = vertices.get(0);
+		Vertex b = vertices.get(1);
+		Vertex c = vertices.get(2);
+		double sideOne = a.calculateDistanceBetweenTwo2DVertices(b);
+		double sideTwo = b.calculateDistanceBetweenTwo2DVertices(c);
+		double sideThree = c.calculateDistanceBetweenTwo2DVertices(a);
+		List<Double> triangleSides = Arrays.asList(sideOne, sideTwo, sideThree);
+		
+		return triangleSides;
+	}
+
+}

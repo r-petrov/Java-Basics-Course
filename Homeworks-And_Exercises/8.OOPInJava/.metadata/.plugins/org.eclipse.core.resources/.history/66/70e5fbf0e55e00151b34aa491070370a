@@ -1,0 +1,28 @@
+package ExecutingPurchases;
+
+import java.time.LocalDate;
+import java.util.Date;
+
+import Messages.Messages;
+import Products.Customer;
+import Products.FoodProduct;
+import Products.Product;
+
+public final class PurchaseManager {
+	private PurchaseManager(){}
+	
+	public static void processPurchase(Product product, Customer customer) {
+		if (product.getQuantity() <= 0) {
+			throw new IllegalArgumentException(Messages.noProductQuantity);
+		}
+		if (product instanceof FoodProduct) {
+			if (LocalDate.now().isAfter((FoodProduct)product.get)) {
+				
+			}
+		}
+		if (product.getPrice() > customer.getBalance()) {
+			throw new IllegalArgumentException(Messages.notEnoughMoney);
+		}
+		customer.exetutePayment(product.getPrice());
+	}
+}

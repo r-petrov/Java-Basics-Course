@@ -1,0 +1,30 @@
+import java.awt.Point;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+Locale.setDefault(Locale.getDefault());
+		
+		Rectangle2D rectangleA = new Rectangle2D.Double(12.5, 6, 10, 2.5);
+		Rectangle2D rectangleB = new Rectangle2D.Double(12.5, 8.5, 5, 5);
+		Rectangle2D rectangleC = new Rectangle2D.Double(20, 8.5, 2.5, 5);
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Enter point coordinates: ");
+		double x = scanner.nextDouble();
+		double y = scanner.nextDouble();
+		
+		if (rectangleA.contains(x, y) || rectangleB.contains(x, y) || rectangleC.contains(x, y)){
+			System.out.println("Inside");
+		} else {
+			System.out.println("Outside");
+		}
+		
+		scanner.close();
+	}
+}

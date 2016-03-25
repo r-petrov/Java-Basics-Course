@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class LongestIncreasingSequence {
+
+	public static void main(String[] args) {
+		System.out.println("Please enter a sequence of integers separated by spaces:");
+		
+		Scanner inputIntegers = new Scanner(System.in);
+		
+		String[] integers = inputIntegers.nextLine().split(" ");
+		
+		ArrayList<ArrayList<String>> integersSequencesCollection = createSequenceOfIntegersCollection(integers);
+		
+		printLargestSequenceOfStrings(integersSequencesCollection);
+	}
+
+	private static ArrayList<ArrayList<String>> createSequenceOfIntegersCollection(
+			String[] integers) {
+		ArrayList<ArrayList<String>> sequencesOfStringsCollection = new ArrayList<ArrayList<String>>();
+		ArrayList<String> sequencesOfStrings = new ArrayList<String>();
+		sequencesOfStrings.add(integers[0]);
+		
+		if (integers.length == 1) {
+			sequencesOfStringsCollection.add(sequencesOfStrings);
+			return sequencesOfStringsCollection;
+		}
+		
+		for (int i = 1; i < integers.length; i++) {
+			if(integers[i].equals(integers[i - 1])) {
+				stringsSequences.add(integers[i]);
+			} else {
+				ArrayList<String> currentStringsSequence = (ArrayList<String>) stringsSequences.clone();
+				stringsSequencesCollection.add(currentStringsSequence);
+				stringsSequences.clear();
+				stringsSequences.add(integers[i]);
+			}
+			
+			if(i == integers.length - 1) {
+				stringsSequencesCollection.add(stringsSequences);
+			}
+		}
+		return stringsSequencesCollection;
+	}
+
+	private static void printLargestSequenceOfStrings(
+			ArrayList<ArrayList<String>> stringsSequencesCollection) {
+		int largestStringSequence = Integer.MIN_VALUE;
+		int index = 0;
+		ArrayList<String> currentStringSequence = new ArrayList<String>();
+		for (int i = 0; i < stringsSequencesCollection.size(); i++) {
+			currentStringSequence = stringsSequencesCollection.get(i);
+			
+			if (stringsSequencesCollection.get(i).size() > largestStringSequence) {
+				largestStringSequence = stringsSequencesCollection.get(i).size();
+				index = i;
+			}
+		}
+		
+		System.out.println(String.join(" ", stringsSequencesCollection.get(index)));
+	}
+}

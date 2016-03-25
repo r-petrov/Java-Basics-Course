@@ -1,0 +1,12 @@
+import Enumerations.AgeRestriction;
+
+
+public class Computer extends ElectonicsProduct {
+
+	public Computer(String name, double price, double quantity,
+			AgeRestriction ageRestriction) {
+		super(name, price, quantity, ageRestriction);
+		this.setGuaranteePeriod() = 24;
+	}
+
+}

@@ -1,0 +1,40 @@
+
+public class FullHouse {
+
+	public static void main(String[] args) {
+		String[] testStrings = {"1a", "1b", "1c", "1d", 
+				"2a", "2b", "2c", "2d", 
+				"3a", "3b", "3c", "3d",
+				"4a", "4b", "4c", "4d"};
+		
+		boolean hasEqualTripleCards = false;
+		boolean hasEqualDoubleCards = false;
+		int counter = 0;
+		for (int c1 = 0; c1 < testStrings.length; c1++) {
+			for (int c2 = 0; c2 < testStrings.length; c2++) {
+				for (int c3 = 0; c3 < testStrings.length; c3++) {
+					for (int c4 = 0; c4 < testStrings.length; c4++) {
+						for (int c5 = 0; c5 < testStrings.length; c5++) {
+							if (testStrings[c1] == testStrings[c2] && testStrings[c2] == testStrings[c3]) {
+								hasEqualTripleCards = true;
+							}
+							
+							if (testStrings[c4] == testStrings[c5] && testStrings[c4] != testStrings[c3]) {
+								hasEqualDoubleCards = true;
+							}
+							
+							if(hasEqualDoubleCards && hasEqualTripleCards) {
+								counter++;
+								System.out.println(c1 + " " + c2 + " " + c3 + " " + c4 + " " + c5);
+								
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		System.out.println(counter);
+	}
+
+}

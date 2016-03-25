@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class ExtractEmails {
+
+	public static void main(String[] args) {
+		Scanner inputText = new Scanner(System.in);
+		String text = inputText.nextLine();
+		
+		List<String> allMatches = new ArrayList<String>();
+		Matcher m = Pattern.compile("your regular expression here").matcher(text);
+		while (m.find()) {
+			allMatches.add(m.group());
+		}
+	}
+
+}

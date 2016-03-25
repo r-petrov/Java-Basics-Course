@@ -1,0 +1,39 @@
+package ExecutingPurchases;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import Enumerations.AgeRestriction;
+import Products.FoodProduct;
+import Products.Product;
+
+public class PurchasesExecution {
+
+	public static void main(String[] args) {
+		Product whiteCheese = new FoodProduct("Бор Чвор", 2.50, 10, AgeRestriction.NONE);
+		FoodProduct whiteCheeseFoodProduct = (FoodProduct) whiteCheese;
+		Date expirationDateWhiteCheese = addDays(whiteCheeseFoodProduct.getCreationDate(), 30);
+		whiteCheeseFoodProduct.setExpirationDate(expirationDateWhiteCheese);
+		
+		Product yougurt = new FoodProduct("Ханско", 1.50, 20, AgeRestriction.NONE);
+		FoodProduct yogurtFoodProduct = (FoodProduct) yougurt;
+		Date expirationDateYogurt = addDays(yogurtFoodProduct.getCreationDate(), 20);
+		whiteCheeseFoodProduct.setExpirationDate(expirationDateYogurt);
+		
+		Product beer = new FoodProduct("Шуменско", 1.30, 50, AgeRestriction.ADULT);
+		FoodProduct beerFoodProduct = (FoodProduct) beer;
+		Date expirationDate = addDays(beerFoodProduct.getCreationDate(), 35);
+		whiteCheeseFoodProduct.setExpirationDate(expirationDate);
+		
+		
+	}
+
+	public static Date addDays(Date date, int days) {
+        GregorianCalendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        calendar.add(Calendar.DATE, days);
+                 
+        return calendar.getTime();
+    }
+}

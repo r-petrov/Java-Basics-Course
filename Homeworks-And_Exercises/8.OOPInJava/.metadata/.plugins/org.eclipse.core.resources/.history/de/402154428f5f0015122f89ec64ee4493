@@ -1,0 +1,16 @@
+import java.util.HashSet;
+import java.util.Set;
+
+
+public class GandalfsStash {
+
+	public static void main(String[] args) {
+		
+		Set<String> gandalfMoods = new HashSet<String>();
+		gandalfMoods.add("Angry");
+		gandalfMoods.add("Sad");
+		gandalfMoods.add("Happy");
+		gandalfMoods.add("Special JavaScript mood");
+	}
+	
+}

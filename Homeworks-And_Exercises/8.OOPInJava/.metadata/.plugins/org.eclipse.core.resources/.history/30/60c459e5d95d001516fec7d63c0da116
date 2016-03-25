@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+import Interfaces.AreaMeasurable;
+import Interfaces.VolumeMeasurable;
+
+
+public abstract class SpaceShape extends Shape implements AreaMeasurable, VolumeMeasurable {
+
+	@Override
+	public void addVertices(ArrayList<Vertex> vertices) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
+	@Override
+	public abstract double getVolume();
+
+	@Override
+	public abstract  double getArea();
+
+}

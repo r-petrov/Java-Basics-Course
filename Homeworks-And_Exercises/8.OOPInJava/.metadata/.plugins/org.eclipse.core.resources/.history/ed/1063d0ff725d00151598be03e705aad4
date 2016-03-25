@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+
+
+public class ShapesInformation {
+
+	public static void main(String[] args) {
+		ArrayList<Vertex> vertices = new ArrayList<Vertex>();
+		vertices.add(new Vertex("Ä", 0.0, 5));
+		vertices.add(new Vertex("B", 1, 5.5));
+		vertices.add(new Vertex("C", 2, 7));
+		
+		Shape triangle = new Triangle();
+		triangle.addVertices(vertices);
+		
+		System.out.println(triangle.toString());
+	}
+
+//	private static ArrayList<Vertex> vertices createVerticesCollection (String name, double xCoordinate, double yCoordinate) {
+//		ArrayList<Vertex> vertices = new ArrayList<Vertex>();
+//	}
+//	
+//private static void createVerticesCollection (String name, double xCoordinate, double yCoordinate, Double zCoordinate) {
+//		
+//	}
+}

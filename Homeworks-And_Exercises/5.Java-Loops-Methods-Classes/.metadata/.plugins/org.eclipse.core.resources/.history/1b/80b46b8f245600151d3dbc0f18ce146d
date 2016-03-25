@@ -1,0 +1,90 @@
+import static java.util.Comparator.comparing;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ListOfProducts {
+
+	public static void main(String[] args) 
+			throws FileNotFoundException, IllegalArgumentException, IOException {
+		ArrayList<Product> products = new ArrayList<Product>();
+		
+		readCollectionFromFile(products);
+		
+		Collections.sort(products, comparing(Product::getPrice));
+		
+		for (Product product : products) {
+			System.out.println(product);
+		}
+		
+	}
+	
+	public static void writeToFileZipFileContents(ArrayList<Product> products, String outputFileName)
+            throws java.io.IOException, NullPointerException {
+
+		java.nio.charset.Charset charset = java.nio.charset.StandardCharsets.US_ASCII;
+		java.nio.file.Path outputFilePath =	java.nio.file.Paths.get(outputFileName);
+		
+		java.io.BufferedWriter writer = java.nio.file.Files.newBufferedWriter(outputFilePath, charset);
+		
+		try  {
+			String newLine = System.getProperty("line.separator");
+			
+			for (Product product : products) {
+				writer.write(product.toString());
+			}
+		} catch (IOException ioex) {
+			System.err.println(ioex.getMessage());
+		} catch (NullPointerException npex) {
+			System.err.println("The list of products is empty.");
+		} finally {
+			if (writer != null) {
+				writer.close();
+			}
+		}
+	}
+
+	private static void readCollectionFromFile(ArrayList<Product> products)
+			throws FileNotFoundException, IOException {
+		Product product = null;
+		
+		BufferedReader fileReader = new BufferedReader(
+				new FileReader(
+						"D:\\SoftUni\\Courses\\programming_fundamentals\\Java-Basics\\Homeworks-And_Exercises"
+						+ "\\5.Java-Loops-Methods-Classes\\Java-Loops-Methods-Classes\\input.txt"));
+		
+		try {
+			while (true) {
+				String line = fileReader.readLine();
+				if (line == null) {
+					break;
+				}
+				
+				String[] lineArguments = line.split(" ");
+				String name = lineArguments[0];
+				double priceOfProduct = Double.parseDouble(lineArguments[1]);
+				BigDecimal price = BigDecimal.valueOf(priceOfProduct);
+				
+				product = new Product(name, price);
+				products.add(product);
+			}
+		} catch (FileNotFoundException fex){
+			System.err.println("The specified file path does not contains the file with product information.");
+		} catch (IllegalArgumentException iarex) {
+			System.err.println("Product name should not be empty!");
+		} catch (IOException ioex) {
+			System.err.println("Error!");
+		}
+		finally {
+			if (fileReader != null) {
+				fileReader.close();
+			}
+		}
+	}
+
+}

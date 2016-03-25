@@ -1,0 +1,54 @@
+
+public class FullHouse {
+
+	public static void main(String[] args) {
+		String spade = "\u2660";
+		String heart = "\u2665";
+		String diamond = "\u2666"; 
+		String club = "\u2663"; 
+		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+		String[] playngCards = new String[52];
+		
+		for (int i = 0; i < playngCards.length; i++) {
+			if(i < ranks.length) {
+				playngCards[i] = ranks[i % ranks.length] + spade;
+			} else if (i >= ranks.length && i < ranks.length * 2) {
+				playngCards[i] = ranks[i % ranks.length] + heart;
+			} else if (i >= ranks.length * 2 && i < ranks.length * 3) {
+				playngCards[i] = ranks[i % ranks.length] + diamond;
+			} else {
+				playngCards[i] = ranks[i % ranks.length] + club;
+			}
+		}
+		
+		//System.out.println(String.join("\n", playngCards));
+		
+		int counter = 0;
+		for (int c1 = 0; c1 < playngCards.length; c1++) {
+			String card1 = playngCards[c1];
+			for (int c2 = 0; c2 < playngCards.length; c2++) {
+				String card2 = playngCards[c2];
+				for (int c3 = 0; c3 < playngCards.length; c3++) {
+					String card3 = playngCards[c3];
+					for (int c4 = 0; c4 < playngCards.length; c4++) {
+						String card4 = playngCards[c4];
+						for (int c5 = 0; c5 < playngCards.length; c5++) {
+							String card5 = playngCards[c5];
+							
+							if (card1.substring(0, 1).equals(card2.substring(0, 1)) 
+									&& card2.substring(0, 1).equals(card3.substring(0, 1))
+								//	&& !card3.substring(0, 1).equals(card4.substring(0, 1)) 
+									&& card4.substring(0, 1).equals(card5.substring(0, 1))) {
+								counter++;
+								System.out.println(card1 + " " + card2 + " " + card3 + " " + card4 + " " + card5);
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		System.out.println(counter);
+	}
+
+}

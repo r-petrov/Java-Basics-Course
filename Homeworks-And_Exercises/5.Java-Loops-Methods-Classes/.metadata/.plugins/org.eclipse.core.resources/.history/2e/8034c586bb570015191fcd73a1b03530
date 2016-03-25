@@ -1,0 +1,28 @@
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Test {
+    public static void main(String[] args) throws ParseException {
+    	String[] face = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+        char[] suit = {'\u2660', '\u2665', '\u2666', '\u2663'};
+        Scanner input = new Scanner(System.in);
+        int hands=Integer.parseInt(input.nextLine());
+        ArrayList<String> allCards = new ArrayList<>();
+        for (int i = 0; i < face.length; i++) {
+            for (int j = 0; j < suit.length; j++) {
+                allCards.add(face[i] + suit[j]);
+            }
+        }
+        Random rd = new Random();
+        for (int i = 0; i < hands; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(allCards.get(rd.nextInt(52)) + " ");
+            }
+            System.out.println();
+
+        }
+    }
+}

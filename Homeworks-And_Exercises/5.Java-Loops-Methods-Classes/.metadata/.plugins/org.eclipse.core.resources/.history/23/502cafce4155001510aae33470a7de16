@@ -1,0 +1,52 @@
+
+public class FullHouse {
+
+	public static void main(String[] args) {
+		String spade = "\u2660";
+		String heart = "\u2665";
+		String diamond = "\u2662"; 
+		String club = "\u2663"; 
+		String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+		String[] playngCards = new String[52];
+		
+		for (int i = 0; i < playngCards.length; i++) {
+			if(i <= ranks.length) {
+				playngCards[i] = ranks[i % ranks.length] + spade;
+			} else if (i > ranks.length && i <= ranks.length * 2) {
+				playngCards[i] = ranks[i % ranks.length] + heart;
+			} else if (i > ranks.length * 2 && i <= ranks.length * 3) {
+				playngCards[i] = ranks[i % ranks.length] + diamond;
+			} else {
+				playngCards[i] = ranks[i % ranks.length] + club;
+			}
+		}
+		
+		System.out.println(String.join(" ", playngCards));
+		
+//		String[] testStrings = {"1a", "1b", "1c", "1d", 
+//				"2a", "2b", "2c", "2d", 
+//				"3a", "3b", "3c", "3d",
+//				"4a", "4b", "4c", "4d"};
+//		
+//		int counter = 0;
+//		for (int c1 = 0; c1 < testStrings.length; c1++) {
+//			for (int c2 = 0; c2 < testStrings.length; c2++) {
+//				for (int c3 = 0; c3 < testStrings.length; c3++) {
+//					for (int c4 = 0; c4 < testStrings.length; c4++) {
+//						for (int c5 = 0; c5 < testStrings.length; c5++) {
+//							String card1 = testStrings[c1];
+//							if (testStrings[c1] == testStrings[c2] && testStrings[c2] == testStrings[c3]
+//									&& testStrings[c3] != testStrings[c4] && testStrings[c4] == testStrings[c5]) {
+//								counter++;
+//								System.out.println(c1 + " " + c2 + " " + c3 + " " + c4 + " " + c5);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//		
+//		System.out.println(counter);
+	}
+
+}

@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class ArrayOfStringsSorter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		int numberOfStrings = scanner.nextInt();
+		
+		// Declare and initialize an array of strings with size equals to number of strings
+		java.lang.String[] strings = createCollectionOfStrings(scanner,
+				numberOfStrings);
+		
+		// Sorting the array of strings
+		// Arrays.sort(strings);
+		sortCollectionOfStrings(strings);
+		
+		for (java.lang.String string : strings) {
+			System.out.println(string);
+		}
+	}
+
+	private static void sortCollectionOfStrings(java.lang.String[] strings) {
+		for (int i = 0; i < strings.length; i++) {
+			for (int j = i + 1; j < strings.length; j++) {
+				if (strings[i].trim().compareTo(strings[j].trim()) >= 0) {
+					String precedingString = strings[j];
+					strings[j] = strings[i];
+					strings[i] = precedingString;
+				}
+			}
+		}
+	}
+
+	private static java.lang.String[] createCollectionOfStrings(
+			Scanner scanner, int numberOfStrings) {
+		java.lang.String[] strings = new java.lang.String[numberOfStrings];
+		java.lang.String currentString = "";
+		
+		for (int i = 0; i < numberOfStrings; i++) {
+			//scanner.useDelimiter("\n");
+			currentString = scanner.nextLine();
+			System.out.println(currentString);
+			strings[i] = currentString.toString();
+		}
+		System.out.println(strings.length);
+		return strings;
+	}
+
+}

@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class CountSubstringOccurrences {
+
+	public static void main(String[] args) {
+		Scanner inputScanner = new Scanner(System.in);
+		String text = inputScanner.nextLine();
+		String substringPattern = inputScanner.next().toLowerCase();
+		int numberOfMatches = 0;
+		
+		for (int i = 0; i < text.toCharArray().length; i++) {
+			if(substringPattern.equals(text.substring(i, substringPattern.length()))) {
+				numberOfMatches++;	
+			}
+		}
+		
+		System.out.println(numberOfMatches);
+		
+//		Matcher match = Pattern.compile(substringPattern).matcher(text.toLowerCase());
+//		List<String> allMatches = new ArrayList<String>();
+//		
+//		while (match.find()) {
+//			allMatches.add(match.group());
+//		}
+//		
+//		System.out.println(allMatches.size());
+	}
+
+}

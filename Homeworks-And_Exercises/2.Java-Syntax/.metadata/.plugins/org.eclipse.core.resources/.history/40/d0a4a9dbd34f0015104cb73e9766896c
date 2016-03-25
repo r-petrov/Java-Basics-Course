@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+
+public class PointsInsideAFigure {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner inputCoordinates = new Scanner(System.in);
+		double xCoordinate = inputCoordinates.nextDouble();
+		double yCoordinate = inputCoordinates.nextDouble();
+	}
+
+}

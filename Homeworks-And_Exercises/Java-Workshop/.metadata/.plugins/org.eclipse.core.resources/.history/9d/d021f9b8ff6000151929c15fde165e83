@@ -1,0 +1,30 @@
+package Game;
+
+public class Game implements Runnable {
+	private String title;
+	private int width;
+	private int height;
+	
+	private Thread thread;
+
+	public Game(String title, int width, int height) {
+		super();
+		this.title = title;
+		this.width = width;
+		this.height = height;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public synchronized void start() {
+		this.thread = new Thread(this);
+	}
+	
+	public synchronized void stop() {
+		
+	}
+}

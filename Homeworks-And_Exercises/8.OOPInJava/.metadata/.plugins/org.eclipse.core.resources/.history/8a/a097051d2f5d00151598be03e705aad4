@@ -1,0 +1,48 @@
+public class Vertex {
+	private double xCoordinate;
+	private double yCoordinate;
+	private Double zCoordinate;
+	
+	public Vertex(double xCoordinate, double yCoordinate) {
+		super();
+		this.setxCoordinate(xCoordinate);
+		this.setyCoordinate(yCoordinate);
+	}
+	
+	
+
+	public Vertex(double xCoordinate, double yCoordinate, Double zCoordinate) {
+		this(xCoordinate, yCoordinate);
+		this.setzCoordinate(zCoordinate);
+	}
+
+	public double getxCoordinate() {
+		return xCoordinate;
+	}
+
+	public void setxCoordinate(double xCoordinate) {
+		this.xCoordinate = xCoordinate;
+	}
+
+	public double getyCoordinate() {
+		return yCoordinate;
+	}
+
+	public void setyCoordinate(double yCoordinate) {
+		this.yCoordinate = yCoordinate;
+	}
+
+	public Double getzCoordinate() {
+		return zCoordinate;
+	}
+
+	public void setzCoordinate(Double zCoordinate) {
+		this.zCoordinate = zCoordinate;
+	}
+
+	public double calculateDistanceBetweenTwo2DVertices() {
+		double distance = Math.sqrt((Math.pow(this.getxCoordinate() - xCoordinate, 2) + 
+				(Math.pow(this.getyCoordinate() - yCoordinate, 2))));
+		return distance;
+	}
+}

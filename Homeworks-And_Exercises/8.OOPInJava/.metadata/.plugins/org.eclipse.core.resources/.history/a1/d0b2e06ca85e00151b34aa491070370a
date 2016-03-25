@@ -1,0 +1,7 @@
+package Interfaces;
+
+public abstract class Product implements Buyable {
+	private String name;
+	private double price;
+	private double quantity;
+}

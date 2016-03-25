@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class CountSpecifiedWord {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String[] textWords = input.nextLine().split("[^A-Za-z]");
+		String wordPattern = input.next().toLowerCase();
+		Pattern pattern = Pattern.compile(wordPattern);
+		int numberOfMatches = 0;
+		
+		for (String word : textWords) {
+			Matcher matcher = pattern.matcher(word.toLowerCase());
+			if (matcher.find()) {
+				numberOfMatches++;
+			}
+		}
+		
+		System.out.println(numberOfMatches);
+	}
+
+}

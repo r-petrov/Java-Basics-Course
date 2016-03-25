@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import Interfaces.AreaMeasurable;
+import Interfaces.PerimeterMeasurable;
+
+
+public abstract class PlaneShape extends Shape implements PerimeterMeasurable, AreaMeasurable {
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
+	@Override
+	public abstract double getArea();
+
+	@Override
+	public abstract double getPerimeter();
+	
+}

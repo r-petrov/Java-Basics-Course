@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+
+public class LettersChangeNumbers {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String[] inputStrings = input.nextLine().split("\\s+");
+		final int NUMBER_OF_ASCII_POSITIONS_TO_CAPITAL_LETTERS = 64;
+		final int NUMBER_OF_ASCII_POSITIONS_TO_NONCAPITAL_LETTERS = 96;
+		
+		double totalSum = 0;
+		
+		for (String string : inputStrings) {
+			char letterBeforeNumber = string.charAt(0);
+			char letterAfterNumber = string.charAt(string.length() - 1);
+			double number = Double.parseDouble(string.substring(1, string.length() - 1));
+			int letterPositionInAlphabet;
+			
+			if (Character.isUpperCase(letterBeforeNumber)) {
+				letterPositionInAlphabet = (int)letterBeforeNumber - NUMBER_OF_ASCII_POSITIONS_TO_CAPITAL_LETTERS;
+				number /= letterBeforeNumber;
+			} else {
+				letterPositionInAlphabet = (int)letterBeforeNumber - numberOfAsciiPositionsToNoncapitalLetters;
+				number *= letterPositionInAlphabet;
+			}
+			
+			if (Character.isUpperCase(letterAfterNumber)) {
+				letterPositionInAlphabet = (int)letterAfterNumber - NUMBER_OF_ASCII_POSITIONS_TO_CAPITAL_LETTERS;
+				number -= letterPositionInAlphabet;
+			} else {
+				letterPositionInAlphabet = (int)letterAfterNumber - numberOfAsciiPositionsToNoncapitalLetters;
+				number += letterPositionInAlphabet;
+			}
+			
+			totalSum += number;
+		}
+		
+		System.out.printf("%.2f", totalSum);
+	}
+
+}

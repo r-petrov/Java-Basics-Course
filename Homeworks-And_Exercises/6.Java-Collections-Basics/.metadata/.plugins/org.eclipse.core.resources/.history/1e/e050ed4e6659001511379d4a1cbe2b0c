@@ -1,0 +1,20 @@
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+
+public class CombineListsOfLetters {
+
+	public static void main(String[] args) {
+		Scanner inputLetters = new Scanner(System.in);
+		String[] firstSequenceOfLetters = inputLetters.toString().split(" ");
+		
+		System.out.println(firstSequenceOfLetters.length);
+		
+		char[] secondSequenceOfLetters = inputLetters.nextLine().split(" ").toString().toCharArray();
+		
+		// List<Character> l1 = Stream.of(firstSequenceOfLetters).collect(Collectors.toList());
+	}
+
+}

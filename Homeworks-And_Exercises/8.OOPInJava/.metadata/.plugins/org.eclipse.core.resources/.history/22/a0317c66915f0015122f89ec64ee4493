@@ -1,0 +1,33 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+
+public class GandalfsStash {
+
+	public static void main(String[] args) {
+		Set<String> gandalfMoods = new HashSet<String>();
+		gandalfMoods.add("Angry");
+		gandalfMoods.add("Sad");
+		gandalfMoods.add("Happy");
+		gandalfMoods.add("Special JavaScript mood");
+		
+		Map<String, Integer> gandalfsFavouriteFoods = new HashMap<String, Integer>();
+		gandalfsFavouriteFoods.put("cram", 2);
+		gandalfsFavouriteFoods.put("lembas", 3);
+		gandalfsFavouriteFoods.put("apple", 1);
+		gandalfsFavouriteFoods.put("melon", 1);
+		gandalfsFavouriteFoods.put("honeycake", 5);
+		gandalfsFavouriteFoods.put("mushrooms", -10);
+		
+		Scanner input = new Scanner(System.in);
+		int gandalfsFirstMood = Integer.parseInt(input.nextLine());
+		String gandalfsFood = input.nextLine().toLowerCase();
+		String[] gandalfsFoods = gandalfsFood.split("[^a-z]+");
+		
+		
+	}
+	
+}

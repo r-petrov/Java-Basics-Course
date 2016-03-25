@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("enter number");
+		int n = scanner.nextInt();
+
+		int bitPairsCount = 0;
+		byte previousBit = 0;
+		byte currentBit = 0;		
+		while (n != 0) {
+			currentBit = (byte) (n % 2);
+			if (currentBit == previousBit) {
+				++bitPairsCount;
+			}
+			previousBit = currentBit;
+			n /= 2;
+		}
+
+		System.out.printf("count of bit pairs %d", bitPairsCount);
+
+		scanner.close();
+	}
+}

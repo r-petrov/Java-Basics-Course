@@ -1,0 +1,30 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+
+public class TheSmallestOf3Numbers {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.ROOT);
+		
+		Scanner inputNumbers = new Scanner(System.in);
+		
+		int a = inputNumbers.nextInt();
+		int b = inputNumbers.nextInt();
+		int c = inputNumbers.nextInt();
+		Integer minimalNumber;
+		
+		if(a <= b) {
+			minimalNumber = a;
+		} else {
+			minimalNumber = b;
+		}
+		
+		if(c <= minimalNumber) {
+			minimalNumber = c;
+		}
+		
+		System.out.println(minimalNumber);
+	}
+
+}

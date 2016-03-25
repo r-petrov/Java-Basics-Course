@@ -1,0 +1,4 @@
+1442142369980	Extract method 'createWordsCounts'
+1442143637752	Extract method 'findMostFrequentWord'
+1442145417312	Extract method 'createCardsCounts'
+1442144148018	Extract method 'printMostFrequentWord'

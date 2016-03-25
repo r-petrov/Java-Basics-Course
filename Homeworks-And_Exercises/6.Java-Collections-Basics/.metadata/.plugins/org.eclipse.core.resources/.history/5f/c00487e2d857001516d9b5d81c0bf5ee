@@ -1,0 +1,30 @@
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+
+public class SortArrayOfNumbers {
+
+	public static void main(String[] args) {
+		//System.out.println("Please enter the number of integers you want to be sorted:");
+		
+		Scanner inputNumbers = new Scanner(System.in);
+		int numberOfElements = Integer.parseInt(inputNumbers.nextLine());
+		
+		//System.out.printf("Please, enter %d integers:\n", numberOfElements);
+		int[] numbers = new int[numberOfElements];
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = inputNumbers.nextInt();
+		}
+		
+		
+		for (int i : numbers) {
+			System.out.print(i + " ");
+		}
+		
+		System.out.println();
+	}
+
+}

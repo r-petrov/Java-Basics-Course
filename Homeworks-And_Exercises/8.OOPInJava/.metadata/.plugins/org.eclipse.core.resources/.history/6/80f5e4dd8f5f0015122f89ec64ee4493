@@ -1,0 +1,21 @@
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+
+public class GandalfsStash {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int gandalfsFirstMood = Integer.parseInt(input.nextLine());
+		String gandalfsFoodString = input.nextLine().toLowerCase();
+		
+		
+		Set<String> gandalfMoods = new HashSet<String>();
+		gandalfMoods.add("Angry");
+		gandalfMoods.add("Sad");
+		gandalfMoods.add("Happy");
+		gandalfMoods.add("Special JavaScript mood");
+	}
+	
+}

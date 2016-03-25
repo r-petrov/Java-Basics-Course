@@ -1,0 +1,31 @@
+package Display;
+
+import java.awt.Frame;
+
+import javax.swing.JFrame;
+
+public class Display {
+	private String title;
+	private int width;
+	private int height;
+	
+	private JFrame frame;
+	
+	public Display(String title, int width, int height) {
+		super();
+		this.title = title;
+		this.width = width;
+		this.height = height;
+		
+		this.createFrame();
+	}
+	
+	private void createFrame() {
+		this.frame = new JFrame(this.title);
+		this.frame.setSize(this.width, this.height);
+		this.frame.setVisible(true);
+		this.frame.setFocusable(true);
+		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.frame.setLocationRelativeTo(null);
+	}
+}

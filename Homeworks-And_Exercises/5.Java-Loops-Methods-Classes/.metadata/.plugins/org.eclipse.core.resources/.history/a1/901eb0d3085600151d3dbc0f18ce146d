@@ -1,0 +1,36 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+
+
+public class ListOfProducts {
+
+	public static void main(String[] args) {
+		ArrayList<Product> products = new ArrayList<Product>();
+		
+		try (BufferedReader fileReader = new BufferedReader(
+				new FileReader(
+						"D:\\SoftUni\\Courses\\programming_fundamentals\\Java-Basics\\Homeworks-And_Exercises"
+						+ "\\5.Java-Loops-Methods-Classes\\Java-Loops-Methods-Classes\\input.txt"));
+				) {
+			while (true) {
+				String[] line = fileReader.readLine().split(" ");
+				if (line == null) {
+					break;
+				}
+				
+				String name = line[0];
+				double priceOfProduct = Double.parseDouble(line[1]);
+				BigDecimal price = BigDecimal.valueOf(priceOfProduct);
+				
+				Product product = new Product(name, price);
+				products.add(product);
+			}
+		} catch (IOException ioex) {
+			System.err.println("Error");
+		} 
+	}
+
+}

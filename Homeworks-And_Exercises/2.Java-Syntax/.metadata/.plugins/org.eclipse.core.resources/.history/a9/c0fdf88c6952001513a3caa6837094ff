@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("enter number");
+		int n = scanner.nextInt();
+		int activeBitsCount = 0;
+		while (n != 0) {
+			activeBitsCount += (n % 2);
+			n /= 2;
+		}
+
+		System.out.printf("count of active bits %d", activeBitsCount);
+
+		scanner.close();
+	}
+}

@@ -1,0 +1,122 @@
+import static java.util.Comparator.comparing;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Locale;
+
+public class OrderOfProducts {
+
+	public static void main(String[] args) 
+			throws FileNotFoundException, IOException, NullPointerException {
+		Locale.setDefault(Locale.ROOT);
+		
+		ArrayList<Product> products = new ArrayList<Product>();
+		ArrayList<String> linesOfProducts = new ArrayList<String>();
+		ArrayList<String> linesOfOrders = new ArrayList<String>();
+		
+		try {
+			linesOfProducts = readCollectionFromFile("D:\\SoftUni\\Courses\\programming_fundamentals\\Java-Basics\\Homeworks-And_Exercises"
+					+ "\\5.Java-Loops-Methods-Classes\\Java-Loops-Methods-Classes\\text-files\\input.txt");
+			
+			createCollectionOfProducts(products, linesOfProducts);
+			
+			linesOfOrders  = readCollectionFromFile("D:\\SoftUni\\Courses\\programming_fundamentals\\Java-Basics\\Homeworks-And_Exercises"
+					+ "\\5.Java-Loops-Methods-Classes\\Java-Loops-Methods-Classes\\text-files\\orders.txt");
+			
+			String totalPriceOfOrdersString = calculateTatalPriceOfOrders(linesOfOrders);
+			
+			writeTotalPriceOfOrdersToFile(totalPriceOfOrdersString,
+					"D:\\SoftUni\\Courses\\programming_fundamentals\\Java-Basics\\Homeworks-And_Exercises"
+					+ "\\5.Java-Loops-Methods-Classes\\Java-Loops-Methods-Classes\\text-files\\output.txt");
+		} catch (FileNotFoundException fex){
+			System.err.println("The specified file path does not contains the file with product information.");
+		} catch (IOException ioex) {
+			System.err.println(ioex.getMessage());
+		} catch (NullPointerException npex) {
+			System.err.println("The list of products is empty.");
+		} 
+		
+	}
+
+	private static String calculateTatalPriceOfOrders(
+			ArrayList<String> linesOfOrders) {
+		String nameOfOrder = null;
+		BigDecimal totalPriceOfOrders = BigDecimal.ZERO;
+		for (String line : linesOfOrders) {
+			String[] orderLine = line.split(" ");
+			nameOfOrder = orderLine[0];
+			BigDecimal currentOrderQuantity = new BigDecimal(orderLine[1]);
+			totalPriceOfOrders.add(currentOrderQuantity);
+		}
+		return totalPriceOfOrders.toString();
+	}
+
+	private static void createCollectionOfProducts(ArrayList<Product> products,
+			ArrayList<String> fileContentLines) {
+		for (String line : fileContentLines) {
+			Product product = createProduct(line);
+			products.add(product);
+		}
+	}
+	
+	private static Product createProduct (String productArguments) {
+		String[] productFields = productArguments.split(" ");
+		String name = productFields[0];
+		double priceOfProduct = Double.parseDouble(productFields[1]);
+		BigDecimal price = BigDecimal.valueOf(priceOfProduct);
+				
+		Product product = new Product(name, price);
+		return product;
+	}
+	
+	public static void writeTotalPriceOfOrdersToFile(String totalPriceOfOrderString, String outputFileName)
+            throws java.io.IOException {
+
+		java.nio.charset.Charset charset = java.nio.charset.StandardCharsets.US_ASCII;
+		java.nio.file.Path outputFilePath =	java.nio.file.Paths.get(outputFileName);
+		
+		java.io.BufferedWriter writer = java.nio.file.Files.newBufferedWriter(outputFilePath, charset);
+		
+		try  {
+			writer.write(totalPriceOfOrderString);
+		} catch (IOException ioex) {
+			System.err.println(ioex.getMessage());
+		} finally {
+			if (writer != null) {
+				writer.close();
+			}
+		}
+	}
+
+	private static ArrayList<String> readCollectionFromFile(String inputFileName)
+			throws  IllegalArgumentException, IOException {
+		ArrayList<String> inputLines = new ArrayList<String>();
+		BufferedReader fileReader = new BufferedReader(new FileReader(inputFileName));
+		
+		try {
+			while (true) {
+				String line = fileReader.readLine();
+				if (line == null) {
+					break;
+				}
+				
+				inputLines.add(line);
+			}
+		} catch (IllegalArgumentException iarex) {
+			System.err.println("Product name should not be empty!");
+		} catch (IOException ioex) {
+			System.err.println("Error!");
+		} finally {
+			if (fileReader != null) {
+				fileReader.close();
+			}
+		}
+		return inputLines;
+	}
+
+}

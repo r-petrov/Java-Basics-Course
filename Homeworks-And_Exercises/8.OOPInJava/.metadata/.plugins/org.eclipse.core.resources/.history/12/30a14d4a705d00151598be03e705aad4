@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+
+
+public class ShapesInformation {
+
+	public static void main(String[] args) {
+		ArrayList<Vertex> vertices = new ArrayList<Vertex>();
+		vertices.add(new Vertex("Ä", 0.0, 5));
+		vertices.add(new Vertex("B", 1, 5.5));
+		vertices.add(new Vertex("C", 2, 7));
+		
+		//vertices.forEach(v -> System.out.println(v.toString()));
+		
+		Shape triangle = new Triangle();
+		triangle.addVertices(vertices);
+		
+		System.out.println(triangle.toString());
+	}
+
+}

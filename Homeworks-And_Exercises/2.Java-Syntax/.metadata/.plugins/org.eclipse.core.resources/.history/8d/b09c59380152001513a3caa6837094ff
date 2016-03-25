@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		String inputSides = input.nextLine();
+		String[] sides = inputSides.split(" ");
+		int sideA=Integer.parseInt(sides[0]);
+		int sideB=Integer.parseInt(sides[1]);
+		int area=sideA*sideB;
+		System.out.println("Area of rectangle is: " + area);
+	}
+}

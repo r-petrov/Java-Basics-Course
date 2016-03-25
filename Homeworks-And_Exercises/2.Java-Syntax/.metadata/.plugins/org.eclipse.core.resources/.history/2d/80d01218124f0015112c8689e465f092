@@ -1,0 +1,12 @@
+
+public class StringDemo {
+
+	public static void main(String[] args) {
+		String a = "b";
+		String b = "bcar";
+		
+		String[] arrString = {a, b};
+		System.out.println(String.join("\n", arrString));
+		System.out.println(arrString);
+	}
+}

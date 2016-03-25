@@ -1,0 +1,40 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayOfStringsSorter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		int numberOfStrings = scanner.nextInt();
+		
+		//Declare and initialize an array of strings with size equals to number of strings
+		//java.lang.String[] strings = createArray(scanner, numberOfStrings);
+		java.lang.String[] strings = new java.lang.String[numberOfStrings];
+		java.lang.String currentString = "";
+		
+		for (int i = 0; i < numberOfStrings; i++) {
+			currentString = scanner.next();
+			strings[i] = currentString.toString();
+		}
+		
+		//Sorting the array of strings
+		//Arrays.sort(strings);
+		
+		for (java.lang.String string : strings) {
+			System.out.println(string);
+		}
+	}
+
+//	private static java.lang.String[] createArray(Scanner scanner,
+//			int numberOfStrings) {
+//		java.lang.String[] strings = new java.lang.String[numberOfStrings];
+//		java.lang.String currentString = "";
+//		
+//		for (int i = 0; i < numberOfStrings; i++) {
+//			currentString = scanner.nextLine();
+//			strings[i] = currentString.toString();
+//		}
+//		return strings;
+//	}
+}

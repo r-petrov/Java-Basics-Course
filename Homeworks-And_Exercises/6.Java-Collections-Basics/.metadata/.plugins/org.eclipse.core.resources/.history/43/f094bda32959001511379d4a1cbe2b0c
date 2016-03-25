@@ -1,0 +1,78 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class LargestSequenceOfEqualStrings {
+
+	public static void main(String[] args) {
+		System.out.println("Please enter a sequence of strings separated by spaces:");
+		
+		Scanner inputStringScanner = new Scanner(System.in);
+		
+		String[] strings = inputStringScanner.nextLine().split(" ");
+		
+		ArrayList<ArrayList<String>> sequencesOfStringsCollection = createSequenceOfStringsCollection(strings);
+		
+		printLargestSequenceOfStrings(sequencesOfStringsCollection);
+		
+//		Scanner scanner = new Scanner(System.in);
+//        String[] input = scanner.nextLine().split(" ");
+//        List<String> sequence = new ArrayList<>();
+//        for (int i = 0; i < input.length - 1; i++) {
+//            List<String> temp = new ArrayList<>();
+//            temp.add(input[i]);
+//            while ((i < input.length - 1) && (input[i + 1].equals(input[i]))) {
+//                temp.add(input[i + 1]);
+//                i++;
+//            }
+//            if (temp.size() > sequence.size()) {
+//                sequence.clear();
+//                sequence.addAll(temp);
+//            }
+//        }
+//        if (input.length == 1) {
+//            sequence.add(input[0]);
+//        }
+//        System.out.println(sequence);
+	}
+
+	private static ArrayList<ArrayList<String>> createSequenceOfStringsCollection(
+			String[] strings) {
+		ArrayList<ArrayList<String>> sequencesOfStringsCollection = new ArrayList<ArrayList<String>>();
+		ArrayList<String> stringsSequences = new ArrayList<String>();
+		stringsSequences.add(strings[0]);
+		for (int i = 1; i < strings.length; i++) {
+			if(strings[i].equals(strings[i - 1])) {
+				stringsSequences.add(strings[i]);
+			} else {
+				ArrayList<String> currentStringsSequence = (ArrayList<String>) stringsSequences.clone();
+				sequencesOfStringsCollection.add(currentStringsSequence);
+				stringsSequences.clear();
+				stringsSequences.add(strings[i]);
+			}
+			
+			if(i == strings.length - 1) {
+				sequencesOfStringsCollection.add(stringsSequences);
+			}
+		}
+		return sequencesOfStringsCollection;
+	}
+
+	private static void printLargestSequenceOfStrings(
+			ArrayList<ArrayList<String>> stringsSequencesCollection) {
+		int largestStringSequence = Integer.MIN_VALUE;
+		int index = 0;
+		ArrayList<String> currentStringSequence = new ArrayList<String>();
+		for (int i = 0; i < stringsSequencesCollection.size(); i++) {
+			currentStringSequence = stringsSequencesCollection.get(i);
+			
+			if (stringsSequencesCollection.get(i).size() > largestStringSequence) {
+				largestStringSequence = stringsSequencesCollection.get(i).size();
+				index = i;
+			}
+		}
+		
+		System.out.println(String.join(" ", stringsSequencesCollection.get(index)));
+	}
+
+}

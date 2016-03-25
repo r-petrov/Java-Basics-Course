@@ -1,0 +1,76 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class LongestIncreasingSequence {
+
+	public static void main(String[] args) {
+System.out.println("Please enter a sequence of strings separated by spaces:");
+		
+		Scanner inputIntegers = new Scanner(System.in);
+		
+		String[] integersAsStrings = inputIntegers.nextLine().split(" ");
+		int[] integers = Arrays.stream(integersAsStrings).mapToInt(Integer::parseInt).toArray();
+		
+		ArrayList<ArrayList<Integer>> sequencesOfIntegersCollection = createSequenceOfIntegersCollection(integers);
+		
+		printIncreasingSequencesOfIntegers(sequencesOfIntegersCollection);
+	}
+
+	private static ArrayList<ArrayList<Integer>> createSequenceOfIntegersCollection(
+			int[] integers) {
+		ArrayList<ArrayList<Integer>> sequencesOfIntegersCollection = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> sequencesOfIntegers = new ArrayList<Integer>();
+		sequencesOfIntegers.add(integers[0]);
+		
+		if (integers.length == 1) {
+			sequencesOfIntegersCollection.add(sequencesOfIntegers);
+			return sequencesOfIntegersCollection;
+		}
+		
+		for (int i = 1; i < integers.length; i++) {
+			if(integers[i] > integers[i - 1]) {
+				sequencesOfIntegers.add(integers[i]);
+			} else {
+				ArrayList<Integer> currentSequenceOfIntegers = (ArrayList<Integer>) sequencesOfIntegers.clone();
+				sequencesOfIntegersCollection.add(currentSequenceOfIntegers);
+				sequencesOfIntegers.clear();
+				sequencesOfIntegers.add(integers[i]);
+			}
+			
+			if(i == integers.length - 1) {
+				sequencesOfIntegersCollection.add(sequencesOfIntegers);
+			}
+		}
+		return sequencesOfIntegersCollection;
+	}
+
+	private static void printIncreasingSequencesOfIntegers(ArrayList<ArrayList<Integer>> sequencesOfIntegersCollection) {
+		int index = getLongestIncreasingSequenceOfIntegers(sequencesOfIntegersCollection);
+		for (int i = 0; i < sequencesOfIntegersCollection.size(); i++) {
+			if (i == index) {
+				System.out.print("Longest: ");
+				sequencesOfIntegersCollection.get(i).forEach(n -> System.out.print(n + " "));
+				System.out.println();
+			} else {
+				sequencesOfIntegersCollection.get(i).forEach(n -> System.out.print(n + " "));
+				System.out.println();
+			}
+		}
+	}
+
+	private static int getLongestIncreasingSequenceOfIntegers(ArrayList<ArrayList<Integer>> sequencesOfIntegersCollection) {
+		int longestIncreasingSequenceOfIntegers = Integer.MIN_VALUE;
+		int index = 0;
+		for (int i = 0; i < sequencesOfIntegersCollection.size(); i++) {
+			ArrayList<Integer> currentSequenceOfIntegers = new ArrayList<Integer>();
+			currentSequenceOfIntegers = sequencesOfIntegersCollection.get(i);
+			if (currentSequenceOfIntegers.size() > longestIncreasingSequenceOfIntegers) {
+				longestIncreasingSequenceOfIntegers = sequencesOfIntegersCollection.get(i).size();
+				index = i;
+			}
+		}
+		return index;
+	}
+}

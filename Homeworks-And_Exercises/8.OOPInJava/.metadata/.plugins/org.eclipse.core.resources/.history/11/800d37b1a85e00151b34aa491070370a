@@ -1,0 +1,63 @@
+package Interfaces;
+
+import Enumerations.AgeRestriction;
+
+public abstract class Product implements Buyable {
+	private String name;
+	private double price;
+	private double quantity;
+	private AgeRestriction ageRestriction;
+	
+	
+	public Product(String name, double price, double quantity,
+			AgeRestriction ageRestriction) {
+		super();
+		this.setName(name);
+		this.setPrice(price);
+		this.setQuantity(quantity);
+		this.setAgeRestriction(ageRestriction);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		if (name == null || name.length() == 0) {
+			throw new IllegalArgumentException("Product name cannot be empty.");
+		}
+		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		if (price < 0) {
+			throw new IllegalArgumentException(
+					"The price of product should be a non-negative number.");
+		}
+		this.price = price;
+	}
+
+	public double getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(double quantity) {
+		if (quantity < 0) {
+			throw new IllegalArgumentException("The quantity of product should be a non-negative number.");
+		}
+		this.quantity = quantity;
+	}
+
+	public AgeRestriction getAgeRestriction() {
+		return ageRestriction;
+	}
+
+	public void setAgeRestriction(AgeRestriction ageRestriction) {
+		this.ageRestriction = ageRestriction;
+	}
+
+}

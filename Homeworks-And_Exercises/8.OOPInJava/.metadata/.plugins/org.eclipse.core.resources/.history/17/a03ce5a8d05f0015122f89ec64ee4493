@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+
+public class LegoBlocks {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int numberOfArraysRows = Integer.parseInt(input.nextLine());
+		int[][] jaggedArrayOne;
+		int[][] jaggedArrayTwo;
+	}
+
+}

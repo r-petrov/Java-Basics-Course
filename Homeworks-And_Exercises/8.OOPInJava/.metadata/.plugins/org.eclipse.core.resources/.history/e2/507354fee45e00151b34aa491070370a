@@ -1,0 +1,20 @@
+package ExecutingPurchases;
+
+import Messages.Messages;
+import Products.Customer;
+import Products.Product;
+
+
+public final class PurchaseManager {
+	private PurchaseManager(){}
+	
+	public static void processPurchase(Product product, Customer customer) {
+		if (product.getQuantity() <= 0) {
+			throw new IllegalArgumentException(Messages.noProductQuantity);
+		}
+		if (product.getPrice() > customer.getBalance()) {
+			throw new IllegalArgumentException(Messages.notEnoughMoney);
+		}
+		customer.exetutePayment(product.getPrice());
+	}
+}

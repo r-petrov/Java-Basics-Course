@@ -1,0 +1,34 @@
+import java.text.DecimalFormat;
+
+
+public class Product {
+	private String product;
+	
+	private DecimalFormat price;
+
+	public Product(String product, DecimalFormat price) {
+		this.product = product;
+		this.price = price;
+	}
+
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		if (product.isEmpty()){
+			throw new IllegalArgumentException("Product name should not be empty!");
+		}
+		this.product = product;
+	}
+
+	public DecimalFormat getPrice() {
+		return price;
+	}
+
+	public void setPrice(DecimalFormat price) {
+		this.price = price;
+	}
+	
+	
+}

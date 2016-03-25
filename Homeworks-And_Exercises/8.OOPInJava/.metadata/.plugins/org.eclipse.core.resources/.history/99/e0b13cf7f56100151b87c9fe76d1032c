@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+
+public class LettersChangeNumbers {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String[] inputStrings = input.nextLine().split("\\s+");
+		final int numberOfAsciiPositionsToCapitalLetters = 64;
+		final int numberOfAsciiPositionsToNoncapitalLetters = 96;
+		
+		double totalSum = 0;
+		
+		for (String string : inputStrings) {
+			char letterBeforeNumber = string.charAt(0);
+			char letterAfterNumber = string.charAt(string.length() - 1);
+			double number = Double.parseDouble(string.substring(1, string.length() - 1));
+			int letterPositionInAlphabet;
+			//System.out.print("" + letterBeforeNumber + number + letterAfterNumber);
+			System.out.println(Character.getNumericValue(letterBeforeNumber));
+			System.out.println(Character.getNumericValue(letterAfterNumber));
+			
+			if (Character.isUpperCase(letterBeforeNumber)) {
+				letterPositionInAlphabet = Character.getNumericValue(letterBeforeNumber) - 
+						numberOfAsciiPositionsToCapitalLetters;
+				number /= letterBeforeNumber;
+			} else {
+				letterPositionInAlphabet = Character.getNumericValue(letterBeforeNumber) - 
+						numberOfAsciiPositionsToNoncapitalLetters;
+				number *= letterPositionInAlphabet;
+			}
+			
+			if (Character.isUpperCase(letterAfterNumber)) {
+				letterPositionInAlphabet = Character.getNumericValue(letterBeforeNumber) - 
+						numberOfAsciiPositionsToCapitalLetters;
+				number -= letterPositionInAlphabet;
+			} else {
+				letterPositionInAlphabet = Character.getNumericValue(letterBeforeNumber) - 
+						numberOfAsciiPositionsToNoncapitalLetters;
+				number += letterPositionInAlphabet;
+			}
+			
+			totalSum += number;
+		}
+		
+		System.out.printf("%.2f", totalSum);
+	}
+
+}

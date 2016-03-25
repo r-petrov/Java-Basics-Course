@@ -1,0 +1,33 @@
+package ExecutingPurchases;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import Enumerations.AgeRestriction;
+import Products.FoodProduct;
+import Products.Product;
+
+public class PurchasesExecution {
+
+	public static void main(String[] args) {
+		Product whiteCheese = new FoodProduct("Бор Чвор", 2.50, 10, AgeRestriction.NONE);
+		FoodProduct whiteCheeseFoodProduct = (FoodProduct) whiteCheese;
+		whiteCheeseFoodProduct.setExpirationDate(30);
+		
+		Product yougurt = new FoodProduct("Ханско", 1.50, 20, AgeRestriction.NONE);
+		FoodProduct yogurtFoodProduct = (FoodProduct) yougurt;
+		yogurtFoodProduct.setExpirationDate(20);
+		
+		Product beer = new FoodProduct("Шуменско", 1.30, 14, AgeRestriction.ADULT);
+		FoodProduct beerFoodProduct = (FoodProduct) beer;
+		beerFoodProduct.setExpirationDate(14);
+		
+		Product energyDrink = new FoodProduct("Пит Бул", 1.90, 15, AgeRestriction.TEENAGER);
+		FoodProduct energyDrinkFoodProduct = (FoodProduct) energyDrink;
+		energyDrinkFoodProduct.setExpirationDate(35);
+		
+		List<Product> products = new ArrayList<Product>(Arrays.asList(whiteCheese, yougurt, beer, energyDrink));
+		products.forEach(p -> System.out.println(p + "\n"));
+	}
+}

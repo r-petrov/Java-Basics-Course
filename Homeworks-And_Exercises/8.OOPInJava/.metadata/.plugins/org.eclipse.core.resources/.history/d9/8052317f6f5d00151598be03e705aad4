@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import Interfaces.AreaMeasurable;
+import Interfaces.PerimeterMeasurable;
+
+
+public abstract class PlaneShape extends Shape implements PerimeterMeasurable, AreaMeasurable {
+
+	@Override
+	public void addVertices(ArrayList<Vertex> vertices) {
+		if (vertices.size() != 1) {
+			throw new IllegalArgumentException("Current shape should hold only one 2D vertix.");
+		}
+		
+		List<Vertex> verticesList = super.getVertices();
+		for (Vertex vertex : vertices) {
+			if (vertex.getzCoordinate() == null && vertices.size() == 1) {
+				verticesList.add(vertex);
+			} else {
+				throw new IllegalArgumentException("Current shape should hold a 2D vertix.");
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
+	@Override
+	public abstract double getArea();
+
+	@Override
+	public abstract double getPerimeter();
+	
+}

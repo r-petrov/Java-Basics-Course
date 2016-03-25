@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class CombineListsOfLetters {
+
+	public static void main(String[] args) {
+		Scanner inputLetters = new Scanner(System.in);
+		
+		String firstLine = inputLetters.nextLine();
+		String firstSequenceOfLetters = extractLetters(firstLine);
+		List<Character> l1 = createListOfLetters(firstSequenceOfLetters);
+		
+		String secondLine = inputLetters.nextLine();
+		String secondSequenceOfLetters = extractLetters(secondLine);
+		List<Character> l2 = createListOfLetters(secondSequenceOfLetters);
+		
+		List<Character> combinedSequenceOfLetters = l1.
+		
+	}
+
+	private static ArrayList<Character> createListOfLetters(String sequenceOfLetters) {
+		ArrayList<Character> lettersCollection = new ArrayList<Character>();
+		for (Character character : sequenceOfLetters.toCharArray()) {
+			lettersCollection.add(character);
+		}
+		
+		return lettersCollection;
+	}
+
+	private static String extractLetters(String text) {
+		Pattern lettersInputPattern = Pattern.compile("\\S+");
+		Matcher lettersMatcher = lettersInputPattern.matcher(text);
+		String sequenceOfLetters = lettersMatcher.toString();
+		
+		return sequenceOfLetters;
+	}
+
+}

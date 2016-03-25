@@ -1,0 +1,14 @@
+package Game;
+
+public class Game implements Runnable {
+	private String title;
+	private int width;
+	private int height;
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

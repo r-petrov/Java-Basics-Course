@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		String inputPointsA = input.nextLine();
+		String[] pointsA = inputPointsA.split(" ");
+		String inputPointsB = input.nextLine();
+		String[] pointsB = inputPointsB.split(" ");
+		String inputPointsC = input.nextLine();
+		String[] pointsC = inputPointsC.split(" ");
+		double pointAX = Double.parseDouble(pointsA[0]);
+		double pointAY = Double.parseDouble(pointsA[1]);
+		double pointBX = Double.parseDouble(pointsB[0]);
+		double pointBY = Double.parseDouble(pointsB[1]);
+		double pointCX = Double.parseDouble(pointsC[0]);
+		double pointCY = Double.parseDouble(pointsC[1]);
+		double aB=findDistance(pointAX, pointAY, pointBX, pointBY);
+		double bC=findDistance(pointBX, pointBY, pointCX, pointCY);
+		double cA=findDistance(pointCX, pointCY, pointAX, pointAY);
+		if (isFormATriangle(aB, bC, cA) == true) {
+			System.out.println(Math.round(calculateArea(aB, bC, cA)));
+		} else if (isFormATriangle(aB, bC, cA) == false) {
+			System.out.println(0);
+		}
+	}
+	
+	public static double findDistance(double firstPointX, double firstPointY, double secondPointX, double secondPointY) {
+		double distance = Math.sqrt(((firstPointX - secondPointX) * (firstPointX - secondPointX)) + ((firstPointY - secondPointY) * (firstPointY - secondPointY)));
+		return distance;
+	}
+	
+	public static boolean isFormATriangle(double a, double b, double c) {
+		if (a + b >c && b + c >a) {
+			return true;
+		}
+		return false; 
+	}
+	
+	public static double calculateArea(double a, double b, double c) {
+		double p = (a+b+c)/2;
+        double area = Math.sqrt(p*(p - a) * (p - b) * (p - c));
+        return area;
+	}
+}

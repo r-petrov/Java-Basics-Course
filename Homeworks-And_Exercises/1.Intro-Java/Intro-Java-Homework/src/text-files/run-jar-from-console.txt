@@ -1,0 +1,14 @@
+c:\Program Files\Java\jre1.8.0_31\bin>javaw.exe -jar D:\..\Intro-Java-Homework\src\jars\ArrayOfStringsSorter.jar
+
+c:\Program Files\Java\jre1.8.0_31\bin>java -jar D:\..\Intro-Java-Homework\src\jars\ArrayOfStringsSorter.jar
+5
+Sofia
+Plovdiv
+Varna
+Pleven
+Bourgas
+Bourgas
+Pleven
+Plovdiv
+Sofia
+Varna

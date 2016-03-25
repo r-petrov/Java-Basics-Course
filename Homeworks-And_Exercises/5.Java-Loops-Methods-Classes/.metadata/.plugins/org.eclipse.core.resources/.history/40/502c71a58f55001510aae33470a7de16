@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+
+public class DaysBetweenTwoDates {
+
+	public static void main(String[] args) {
+		Scanner inputDate = new Scanner(System.in);
+		String[] firstDateStrings = inputDate.nextLine().split("-");
+		int firstDateDay = Integer.parseInt(firstDateStrings[0]);
+		int firstDateMonth = Integer.parseInt(firstDateStrings[1]);
+		int firstDateYear = Integer.parseInt(firstDateStrings[2]);
+		while (firstDateDay < 1 || firstDateDay > 31
+				|| firstDateMonth < 1 || firstDateMonth > 12
+				|| firstDateYear < 1900 || firstDateYear > 2100) {
+			firstDateStrings = inputDate.nextLine().split("-");
+			firstDateDay = Integer.parseInt(firstDateStrings[0]);
+			firstDateMonth = Integer.parseInt(firstDateStrings[1]);
+			firstDateYear = Integer.parseInt(firstDateStrings[2]);
+		}
+		String[] secondDateStrings = inputDate.nextLine().split("-");
+		int secondDateDay = Integer.parseInt(secondDateStrings[0]);
+		int secondDateMonth = Integer.parseInt(secondDateStrings[1]);
+		int secondDateYear = Integer.parseInt(secondDateStrings[2]);
+	}
+
+}

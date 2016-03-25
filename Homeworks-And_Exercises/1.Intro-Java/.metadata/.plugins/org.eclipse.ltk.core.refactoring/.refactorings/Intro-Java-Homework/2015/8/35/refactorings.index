@@ -1,0 +1,4 @@
+1440676682734	Delete element
+1440678350071	Extract method 'createArray'
+1440691138596	Extract method 'createCollectionOfStrings'
+1440691213627	Extract method 'sortCollectionOfStrings'

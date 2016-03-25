@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class ExtractAllUniqueWords {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] input = scanner.nextLine().toLowerCase().split("[,.?!:; ]");
+        TreeSet<String> output = new TreeSet<String>(Arrays.asList(input));
+        System.out.println(String.join(" ",output));
+    }
+}
+

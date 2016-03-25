@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Generate3LettersWord {
+    public static int numberOfLoops;
+    public static char[] numberOfIterations;
+    public static char[] loops;
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        numberOfLoops = 3;
+        System.out.print("Please enter letters: ");
+        numberOfIterations = input.nextLine().toCharArray();
+        loops = new char[numberOfLoops];
+        nestedLoops(0);
+    }
+
+    public static void nestedLoops(int currentLoop) {
+        if (currentLoop == numberOfLoops) {
+            printLoops();
+            return;
+        }
+        for (int counter = 0; counter <= numberOfIterations.length - 1; counter++) {
+            loops[currentLoop] = numberOfIterations[counter];
+            nestedLoops(currentLoop + 1);
+        }
+    }
+
+    public static void printLoops() {
+        for (int i = 0; i < numberOfLoops; i++) {
+            System.out.printf("%s ", loops[i]);
+        }
+        System.out.println();
+    }
+}

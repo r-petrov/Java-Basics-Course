@@ -1,0 +1,28 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.ROOT);
+		
+		Scanner scanner = new Scanner(System.in);
+
+		int a = -1;
+		while (a < 0 || a > 500) {
+			System.out.println("enter number[0,500]");
+			a = scanner.nextInt();
+		}
+		
+		System.out.println("enter float number");
+		double b = scanner.nextDouble();
+		
+		System.out.println("enter float number");
+		double c = scanner.nextDouble();
+
+		String binaryString = String.format("%10s", Integer.toBinaryString(a)).replace(' ', '0');
+		System.out.printf("|%-10X|%10s|%10.2f|%-10.3f|", a, binaryString, b, c);
+
+		scanner.close();
+	}
+}

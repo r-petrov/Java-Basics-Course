@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class LongestIncreasingSequence {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] input = scanner.nextLine().split(" ");
+        ArrayList<Integer> output = new ArrayList<>(input.length);
+        for (String s : input) {
+            output.add(Integer.parseInt(s));
+        }
+        int count = 1;
+        int countMax = 0;
+        int start = 0;
+        int end = 1;
+        for (int i = 1; i < output.size(); i++) {
+            if(output.get(i)>output.get(i - 1)){
+                System.out.print(output.get(i - 1) + " ");
+                count++;
+                if(count>countMax){
+                    start = count-(i+1);
+                    end = count;
+                    countMax = count;
+
+                }
+            }
+            else{
+                System.out.println(output.get(i - 1) + " ");
+                count = 1;
+
+            }
+            if(i == output.size()-1){
+                System.out.println(output.get(i));
+            }
+        }
+        for (int i = start; i < end; i++) {
+            System.out.print(output.get(i)+" ");
+
+        }
+
+    }
+}

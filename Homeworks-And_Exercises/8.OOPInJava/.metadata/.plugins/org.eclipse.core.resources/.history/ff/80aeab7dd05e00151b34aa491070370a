@@ -1,0 +1,64 @@
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import Enumerations.AgeRestriction;
+import Interfaces.Expirable;
+
+public class FoodProduct extends Product implements Expirable {
+	private final double EXPIRED_PRODUCT_PRICE_RATIO = 0.7;
+	private Calendar dateOfProductCreation;
+	private Calendar dateOfProductExpiration;
+
+	public FoodProduct(String name, double price, int quantity,
+			AgeRestriction ageRestriction) {
+		super(name, price, quantity, ageRestriction);
+		this.dateOfProductCreation = new GregorianCalendar();
+		this.setDateOfProductExpiration(dateOfProductExpiration);
+	}
+
+	public Calendar getDateOfProductCreation() {
+		return dateOfProductCreation;
+	}
+	
+	public Calendar getDateOfProductExpiration() {
+		return dateOfProductExpiration;
+	}
+
+	public void setDateOfProductExpiration(Calendar dateOfProductExpiration) {
+		if (this.dateOfProductCreation.compareTo(dateOfProductExpiration) >= 0) {
+			throw new IllegalArgumentException(Messages.invalidProductDateOfExpiration);
+		}
+		this.dateOfProductExpiration = dateOfProductExpiration;
+	}
+
+	@Override
+	public double getPrice() {
+		double price = this.getPrice();
+		Date currentDate = new Date();
+		Date expirationDate = this.getExpirationDate();
+		if (currentDate.compareTo(expirationDate) >= 0) {
+			price = super.getPrice() * EXPIRED_PRODUCT_PRICE_RATIO;
+		}
+		return price;
+	}
+	
+	@Override
+	public Date getExpirationDate() {
+		// DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		//this.dateOfProductCreation.add(Calendar.DATE, 15);
+		Date expirationDate = this.dateOfProductExpiration.getTime();
+		return expirationDate;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append(super.toString());
+		result.append(String.format(
+				"Date of product creation: %s\nDate of product expiration: %s",
+				this.dateOfProductCreation, this.getExpirationDate()));
+		return result.toString();
+	}
+
+}

@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.text.ParseException;
+
+import java.util.*;
+
+
+public class Test {
+    public static void main(String[] args) throws ParseException {
+        Scanner input = new Scanner(System.in);
+        int n=Integer.parseInt(input.nextLine());
+        String[]array=new String[n];
+        for (int i = 0; i <n ; i++) {
+            String line=input.nextLine();
+            String[]inputArray=line.split(" ");
+            if (inputArray[1].equals("deg")){
+                array[i]=String.format("%6f rad",Math.toRadians(Double.parseDouble(inputArray[0])));
+            }else {
+                array[i]=String.format("%6f deg",Math.toDegrees(Double.parseDouble(inputArray[0])));
+            }
+        }
+        for(String str:array){
+            System.out.println(str);
+        }
+    }
+}

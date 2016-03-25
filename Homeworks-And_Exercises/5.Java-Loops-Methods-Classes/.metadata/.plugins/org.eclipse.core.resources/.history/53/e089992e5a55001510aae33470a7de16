@@ -1,0 +1,36 @@
+import java.nio.channels.Pipe;
+import java.util.Scanner;
+
+
+public class AngleUnitConverter {
+	static final double DEGREES_180 = 180;
+	static final double PI = Math.PI;
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int numberOfConversions = Integer.parseInt(input.nextLine());
+		String[] queriesStrings = null;
+		
+		for (int i = 0; i < numberOfConversions; i++) {
+			queriesStrings = input.nextLine().split(" ");
+			int degreesToConvert = Integer.parseInt(queriesStrings[0]);
+			String measure = queriesStrings[1];
+			
+			switch (measure) {
+			case "deg":
+				double radians = degreesToConvert * (PI / DEGREES_180);
+				System.out.printf("%.6f", radians);
+				break;
+			case "rad":
+				double degrees = degreesToConvert * (DEGREES_180 / PI);
+				System.out.printf("%.6f", degrees);
+				break;
+				
+			default:
+				break;
+			}
+			
+		}
+	}
+
+}

@@ -1,0 +1,29 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class CardsFrequencies {
+
+	public static void main(String[] args) {
+		Scanner inputCards = new Scanner(System.in);
+		String[] cardsStrings = inputCards.nextLine().split(" ");
+		
+		Map<Character, Integer> cards = createCardsCounts(cardsStrings);
+		cards.forEach(Map.Entry<Character, Integer> c -> syso);;
+	}
+
+	private static Map<Character, Integer> createCardsCounts(String[] cardsStrings) {
+		Map<Character, Integer> cards = new LinkedHashMap<Character, Integer>();
+		for (String card : cardsStrings) {
+			char cardFace = card.charAt(0);
+			Integer count = cards.get(cardFace);
+			if (count == null) {
+				count = 0;
+			}
+			cards.put(cardFace, count + 1);
+			return cards;
+		}
+	}
+
+}

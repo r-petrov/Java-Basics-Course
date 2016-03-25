@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class CombineListsOfLetters {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] firstLine = input.nextLine().split(" ");
+        String[] secondLine = input.nextLine().split(" ");
+
+        ArrayList<Character> firstList = new ArrayList();
+        ArrayList<Character> secondList = new ArrayList();
+
+        firstList = addCharacters(firstLine, firstList);
+        secondList = addCharacters(secondLine, secondList);
+        ArrayList<Character> result = new ArrayList(firstList);
+
+        result = addCharactersFromSecondList(firstList, secondList, result);
+        printResult(result);
+    }
+
+    private static void printResult(ArrayList<Character> result) {
+        for (Character character : result) {
+            System.out.print(character + " ");
+        }
+    }
+
+    private static ArrayList<Character> addCharactersFromSecondList(
+            ArrayList<Character> firstList,
+            ArrayList<Character> secondList,
+            ArrayList<Character> result) {
+        for (Character character : secondList) {
+            if (!firstList.contains(character)) {
+                result.add(character);
+            }
+        }
+
+        return result;
+    }
+
+    private static ArrayList<Character> addCharacters(String[] line, ArrayList<Character> list) {
+        for (String character : line) {
+            list.add(character.charAt(0));
+        }
+
+        return list;
+    }
+}

@@ -1,0 +1,15 @@
+import java.text.DecimalFormat;
+
+
+public class Product {
+	private String product;
+	
+	private DecimalFormat price;
+
+	public Product(String product, DecimalFormat price) {
+		this.product = product;
+		this.price = price;
+	}
+	
+	
+}

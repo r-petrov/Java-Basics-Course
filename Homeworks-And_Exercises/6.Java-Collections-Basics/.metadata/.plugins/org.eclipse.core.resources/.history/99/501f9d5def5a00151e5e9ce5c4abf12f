@@ -1,0 +1,15 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class ExtractEmails {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String line = input.nextLine();
+        Pattern regex = Pattern.compile("\\b(\\b[\\w.\\w]+\\b)@(\\b[\\w.\\w]+\\b)\\b");
+        Matcher matcher = regex.matcher(line);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+    }
+}

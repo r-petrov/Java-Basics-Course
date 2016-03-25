@@ -1,0 +1,33 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class LegoBlocks {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int numberOfArraysRows = Integer.parseInt(input.nextLine());
+		int[][] jaggedArrayOne = initializeJaggedArrays(input, numberOfArraysRows);
+		int[][] jaggedArrayTwo = initializeJaggedArrays(input, numberOfArraysRows);
+		
+		System.out.println(Arrays.deepToString(jaggedArrayOne));
+		System.out.println(Arrays.deepToString(jaggedArrayTwo));
+	}
+
+	private static int[][] initializeJaggedArrays(Scanner input,
+			int numberOfArraysRows) {
+		int[][] jaggedArray = null; 
+		for (int i = 0; i < numberOfArraysRows; i++) {
+			String[] row = input.nextLine().trim().split("\\s+");
+			
+			System.out.println(row.length);
+			
+			jaggedArray = new int[i][row.length];
+			for (int j = 0; j < row.length; j++) {
+				jaggedArray[i][j] = Integer.parseInt(row[j]);
+			}
+		}
+		return jaggedArray;
+	}
+
+}

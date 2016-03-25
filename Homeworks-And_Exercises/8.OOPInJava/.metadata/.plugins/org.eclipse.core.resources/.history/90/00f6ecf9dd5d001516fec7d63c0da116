@@ -1,0 +1,52 @@
+package Shapes.SpaceShapes;
+
+public class SquarePyramid extends SpaceShape {
+	private double baseWidth;
+	private double pyramidHeight;
+	
+	public SquarePyramid(double baseWidth, double pyramidHeight) {
+		super();
+		this.setBaseWidth(baseWidth);
+		this.setPyramidHeight(pyramidHeight);
+	}
+
+	public double getBaseWidth() {
+		return baseWidth;
+	}
+
+	public void setBaseWidth(double baseWidth) {
+		this.baseWidth = baseWidth;
+	}
+
+	public double getPyramidHeight() {
+		return pyramidHeight;
+	}
+
+	public void setPyramidHeight(double pyramidHeight) {
+		this.pyramidHeight = pyramidHeight;
+	}
+
+	@Override
+	public double getVolume() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+	private double getSlantHeight() {
+		double slantHeight = 
+				Math.sqrt(this.pyramidHeight * this.pyramidHeight + (this.baseWidth / 2) * (this.baseWidth / 2));
+		return slantHeight;
+	}
+}

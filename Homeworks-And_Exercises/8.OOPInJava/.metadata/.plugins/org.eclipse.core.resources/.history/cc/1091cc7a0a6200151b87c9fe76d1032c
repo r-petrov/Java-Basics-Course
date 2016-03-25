@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class LegoBlocks {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int numberOfRows = Integer.parseInt(input.nextLine());
+
+		ArrayList<ArrayList<String>> firstJaggedArray = fillJaggedArray(numberOfRows, input);
+		ArrayList<ArrayList<String>> secondJaggedArray = fillJaggedArray(numberOfRows, input);
+		ArrayList<ArrayList<String>> reversedSecondJaggedArray = new ArrayList<ArrayList<String>>(numberOfRows);
+		
+		for (ArrayList<String> numbersCollection : secondJaggedArray) {
+			ArrayList<String> reversedNumbersCollection = new ArrayList<String>(numbersCollection.size());
+			for (int i = numbersCollection.size() - 1; i >= 0; i--) {
+				reversedNumbersCollection.add(numbersCollection.get(i));
+			}
+			reversedSecondJaggedArray.add(reversedNumbersCollection);
+		}
+		//System.out.println(Arrays.deepToString(firstJaggedArray.toArray()));
+	}
+
+	private static ArrayList<ArrayList<String>> fillJaggedArray(int numberOfRows, Scanner input) {
+		ArrayList<ArrayList<String>> jaggedArray = new ArrayList<ArrayList<String>>(numberOfRows);
+		for (int i = 0; i < numberOfRows; i++) {
+			String[] numbers = input.nextLine().trim().split("\\s+");
+			ArrayList<String> numbersList = new ArrayList<String>(Arrays.asList(numbers));
+			jaggedArray.add(numbersList);
+		}
+		return jaggedArray;
+	}
+}

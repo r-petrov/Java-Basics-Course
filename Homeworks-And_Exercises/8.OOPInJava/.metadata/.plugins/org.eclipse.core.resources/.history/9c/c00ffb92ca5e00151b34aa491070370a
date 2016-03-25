@@ -1,0 +1,9 @@
+
+public final class Messages {
+	private Messages(){}
+	
+	String invalidProductName = "Product name cannot be empty.";
+	String invalidProductPrice = "The price of product cannot be a negative number.";
+	String invalidProductQuantity = "The quantity of product should be a non-negative number.";
+	String invalidCustomerName = "Customer name cannot be empty.";
+}

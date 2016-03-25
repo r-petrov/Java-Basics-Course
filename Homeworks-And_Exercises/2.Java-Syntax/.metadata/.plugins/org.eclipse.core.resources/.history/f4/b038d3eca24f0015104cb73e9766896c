@@ -1,0 +1,29 @@
+
+public class StringDemo {
+	private int i;
+
+	public static void main(String[] args) {
+		String a = "b";
+		String b = "bcar";
+		int i = 1_000;
+		
+		
+		
+		String[] arrString = {a, b};
+		System.out.println(String.join("\n", arrString));
+		System.out.println(arrString);
+	}
+
+	public StringDemo(int i) {
+		super();
+		this.i = i;
+	}
+
+	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
+}

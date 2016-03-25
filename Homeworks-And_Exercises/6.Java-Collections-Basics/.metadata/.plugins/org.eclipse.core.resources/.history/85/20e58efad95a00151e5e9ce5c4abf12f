@@ -1,0 +1,43 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class CardsFrequencies {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] cards = input.nextLine().split(" ");
+        Map<String, Double> output = new LinkedHashMap();
+
+        int length = cards.length;
+        double frequency = 0.0f;
+        for (int i = 0; i < cards.length; i++) {
+            String currentCard = cards[i].substring(0, 1);
+            double appearance = 1;
+            for (int j = i + 1; j < cards.length; j++) {
+                String nextCard = cards[j].substring(0, 1);
+                if (currentCard.equals(nextCard)) {
+                    appearance++;
+                }
+            }
+
+            frequency = appearance / length * 100.0f;
+            if (!output.containsKey(currentCard)) {
+                output.put(currentCard, frequency);
+            }
+        }
+
+        StringBuilder builder = new StringBuilder();
+        for (String card : output.keySet()) {
+            builder.append(card);
+            if (card.equals("1")) {
+                builder.append("0");
+            }
+
+            builder.append(String.format(" -> %.2f", output.get(card)));
+            builder.append("%\n");
+        }
+
+        System.out.print(builder);
+    }
+}

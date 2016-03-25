@@ -1,0 +1,29 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.DecimalFormat;
+
+
+public class ListOfProducts {
+
+	public static void main(String[] args) {
+		try (BufferedReader fileReader = new BufferedReader(
+				new FileReader(
+						"D:\\SoftUni\\Courses\\programming_fundamentals\\Java-Basics\\Homeworks-And_Exercises"
+						+ "\\5.Java-Loops-Methods-Classes\\Java-Loops-Methods-Classes\\input.txt"));
+				) {
+			while (true) {
+				String[] line = fileReader.readLine().split(" ");
+				if (line == null) {
+					break;
+				}
+				
+				String name = line[0];
+				DecimalFormat price = (DecimalFormat) Double.parseDouble(line[1]);
+			}
+		} catch (IOException ioex) {
+			System.err.println("Error");
+		} 
+	}
+
+}

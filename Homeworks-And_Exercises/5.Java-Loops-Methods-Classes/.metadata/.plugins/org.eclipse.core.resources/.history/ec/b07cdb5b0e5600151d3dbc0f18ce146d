@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static java.util.Comparator.comparing;
+
+public class ListOfProducts {
+
+	public static void main(String[] args) 
+			throws FileNotFoundException, IllegalArgumentException, IOException {
+		ArrayList<Product> products = new ArrayList<Product>();
+		
+		Product product = null;
+		
+		BufferedReader fileReader = new BufferedReader(
+				new FileReader(
+						"D:\\SoftUni\\Courses\\programming_fundamentals\\Java-Basics\\Homeworks-And_Exercises"
+						+ "\\5.Java-Loops-Methods-Classes\\Java-Loops-Methods-Classes\\input.txt"));
+		
+		try {
+			while (true) {
+				String[] line = fileReader.readLine().split(" ");
+				if (line == null) {
+					break;
+				}
+				
+				String name = line[0];
+				double priceOfProduct = Double.parseDouble(line[1]);
+				BigDecimal price = BigDecimal.valueOf(priceOfProduct);
+				
+				product = new Product(name, price);
+				products.add(product);
+			}
+		} catch (FileNotFoundException fex){
+			System.err.println("The specified file path does not contains the file with product information.");
+		} catch (IllegalArgumentException iarex) {
+			System.err.println("Product name should not be empty!");
+		} catch (IOException ioex) {
+			System.err.println("Error!");
+		}
+		finally {
+			if (fileReader != null) {
+				fileReader.close();
+			}
+		}
+		
+		Collections.sort(products, comparing(Product::getName));
+	}
+
+}

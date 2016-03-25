@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+
+public class LettersChangeNumbers {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String[] inputStrings = input.nextLine().split("\\s+");
+		
+		double totalSum = 0;
+		
+		for (String string : inputStrings) {
+			char letterBeforeNumber = string.charAt(0);
+			char letterAfterNumber = string.charAt(string.length() - 1);
+			double number = Double.parseDouble(string.substring(1, string.length() - 1));
+			
+			if (Character.isUpperCase(letterBeforeNumber)) {
+				number /= letterBeforeNumber;
+			} else {
+				number *= letterBeforeNumber;
+			}
+			
+			totalSum += number;
+			
+			if (Character.isUpperCase(letterAfterNumber)) {
+				number -= letterAfterNumber;
+			} else {
+				number += letterAfterNumber;
+			}
+			
+			totalSum += number;
+		}
+		
+		System.out.printf("%.2f", totalSum);
+	}
+
+}

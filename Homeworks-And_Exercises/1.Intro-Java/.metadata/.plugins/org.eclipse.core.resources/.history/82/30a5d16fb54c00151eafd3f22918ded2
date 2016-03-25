@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.util.regex.MatchResult;
+
+public class ArrayOfStringsSorter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		int numberOfStrings = scanner.nextInt();
+		
+		
+		java.lang.String[] strings = new java.lang.String[numberOfStrings];
+		java.lang.String currentString = "";
+		
+		for (int i = 0; i < numberOfStrings; i++) {
+			scanner.useDelimiter("\n");
+			currentString = scanner.nextLine();
+			strings[i] = currentString.toString();
+		}
+		
+		for (java.lang.String string : strings) {
+			System.out.println(string);
+		}
+	}
+
+}

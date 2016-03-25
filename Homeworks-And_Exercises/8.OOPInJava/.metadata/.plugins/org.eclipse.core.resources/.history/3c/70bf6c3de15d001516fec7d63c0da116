@@ -1,0 +1,67 @@
+package Shapes.SpaceShapes;
+
+public class Cuboid extends SpaceShape {
+	private double width;
+	private double height;
+	private double depth;
+	
+	public Cuboid(double width, double height, double depth) {
+		super();
+		this.setWidth(width);
+		this.setHeight(height);
+		this.setDepth(depth);
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
+
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public double getDepth() {
+		return depth;
+	}
+
+	public void setDepth(double depth) {
+		this.depth = depth;
+	}
+
+	@Override
+	public double getVolume() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private double getBaseArea() {
+		double area = this.width * this.depth;
+		return area;
+	}
+	
+	private double getWidthSideArea() {
+		double area = this.width * this.height;
+		return area;
+	}
+}

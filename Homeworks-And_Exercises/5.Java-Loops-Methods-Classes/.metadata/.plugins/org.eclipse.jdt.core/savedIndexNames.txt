@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+D:\SoftUni\Courses\programming_fundamentals\Java-Basics\Homeworks-And_Exercises\5.Java-Loops-Methods-Classes\.metadata\.plugins\org.eclipse.jdt.core
+1283651782.index

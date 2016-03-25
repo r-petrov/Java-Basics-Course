@@ -1,0 +1,66 @@
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Scanner;
+
+
+public class DaysBetweenTwoDates {
+
+	public static void main(String[] args) {
+		Scanner inputDate = new Scanner(System.in);
+		
+		String[] firstDateStrings = inputDate.nextLine().split("-");
+		checkDateInput(inputDate, firstDateStrings);
+		int firstDateDay = Integer.parseInt(firstDateStrings[0]);
+		int firstDateMonth = Integer.parseInt(firstDateStrings[1]);
+		int firstDateYear = Integer.parseInt(firstDateStrings[2]);
+		Calendar firstDate = Calendar.getInstance();
+		firstDate.set(firstDateYear, firstDateMonth - 1, firstDateDay);
+		
+		String[] secondDateStrings = inputDate.nextLine().split("-");
+		checkDateInput(inputDate, secondDateStrings);
+		int secondDateDay = Integer.parseInt(secondDateStrings[0]);
+		int secondDateMonth = Integer.parseInt(secondDateStrings[1]);
+		int secondDateYear = Integer.parseInt(secondDateStrings[2]);
+		Calendar secondDate = Calendar.getInstance();
+		secondDate.set(secondDateYear, secondDateMonth - 1, secondDateDay);
+		
+		int days = calculateDaysBetween(firstDate, secondDate);
+		System.out.println(days);
+	}
+	
+	public static int calculateDaysBetween(Calendar startDate, Calendar endDate) {
+        Calendar date = (Calendar) startDate.clone();
+        int daysBetween = 0;
+        
+        if (startDate.compareTo(endDate) < 0) {
+        	//daysBetween--;
+        	while (date.before(endDate)) {
+                date.add(Calendar.DAY_OF_MONTH, 1);
+                daysBetween++;
+            }
+		} else {
+			while (endDate.before(date)) {
+	            endDate.add(Calendar.DAY_OF_MONTH, 1);
+	            daysBetween--;
+	        }
+		}
+        
+        return daysBetween;
+    }
+
+	private static void checkDateInput(Scanner inputDate,
+			String[] dateStrings) {
+		int day = Integer.parseInt(dateStrings[0]);
+		int month = Integer.parseInt(dateStrings[1]);
+		int firstDateYear = Integer.parseInt(dateStrings[2]);
+		while (day < 1 || day > 31
+				|| month < 1 || month > 12
+				|| firstDateYear < 1900 || firstDateYear > 2100) {
+			dateStrings = inputDate.nextLine().split("-");
+			day = Integer.parseInt(dateStrings[0]);
+			month = Integer.parseInt(dateStrings[1]);
+			firstDateYear = Integer.parseInt(dateStrings[2]);
+		}
+	}
+
+}
